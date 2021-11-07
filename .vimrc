@@ -1,26 +1,31 @@
 " ---Basic stuff---
-syntax on             " Syntax highlighting
-set splitbelow        " Horizontal window forms below current
-set encoding=utf-8    " UTF-8 encoding
-set relativenumber    " Line numbering
-set splitright        " Vertical window forms to right of current
-set timeoutlen=200    " Set so that simply pressing 'o' or 'O' doesn't cause a long hang
-set foldmethod=indent " Set fold best on text indentation
-set foldlevel=99
+set nocompatible
+syntax on                    " Syntax highlighting
+set splitright               " Vertical window forms to right of current
+set splitbelow               " Horizontal window forms below current
+set encoding=utf-8           " UTF-8 encoding
+set number relativenumber    " Line numbering
+set so=999                   " Keep the cursor centered
+set timeoutlen=200           " Set so that simply pressing 'o' or 'O' doesn't cause a long hang
+set foldmethod=indent        " Set fold best on text indentation
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set laststatus=2
-set backspace=indent,eol,start
-set noshowmode
+set laststatus=2             "https://github.com/itchyny/lightline.vim/blob/master/README.md#introduction
+set noshowmode               " With lightline, there isn't much need for showmode
+set foldlevel=99
 
+set backup
+set backupdir=~/Documents/config/
+set backupcopy=yes
+
+" Setup undo to work between vim sessions
 if !isdirectory($HOME."/.vim")
     call mkdir($HOME."/.vim", "", 0770)
 endif
 if !isdirectory($HOME."/.vim/undo-dir")
     call mkdir($HOME."/.vim/undo-dir", "", 0700)
 endif
-
 set undodir=~/.vim/undo-dir
 set undofile
 
@@ -74,7 +79,6 @@ inoremap <Down> <nop>
 nnoremap dl ddO<esc>
 
 " ---Setup Vundle---
-set nocompatible              " required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -89,6 +93,7 @@ Plugin 'gmarik/Vundle.vim'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
+Plugin 'lervag/vimtex'
 Plugin 'frazrepo/vim-rainbow'
 Plugin 'dense-analysis/ale'
 Plugin 'ycm-core/YouCompleteMe'
@@ -104,8 +109,6 @@ Plugin 'itchyny/lightline.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-" Enable folding
 
 " Write with W
 command! W write
@@ -133,6 +136,12 @@ function AddStamp()
 endfunction
 
 autocmd BufWritePre *.py :call AddStamp()
+
+let g:tex_flavor='latex'
+let g:vimtex_view_method='evince'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 " Color configuration
 if (empty($TMUX))

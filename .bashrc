@@ -62,6 +62,8 @@ if [ -d "$HOME/Documents/DPhil" ] ; then
         alias espy="cd $NMRESPYPATH"
         if [ -d "$NMRESPYPATH/.venv" ] ; then
             alias espysource="source $NMRESPYPATH/.venv/bin/activate"
+            alias espybuilddocs="espysource && cd $NMRESPYPATH/docs && sphinx-build -b html . _build/html && cd -"
+            alias espyviewdocs="o $NMRESPYPATH/docs/_build/html/content/index.html"
         fi
     fi
     if [ -d "$HOME/Documents/DPhil/journal" ] ; then
