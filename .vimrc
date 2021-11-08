@@ -93,6 +93,12 @@ Plugin 'gmarik/Vundle.vim'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
 Plugin 'lervag/vimtex'
 Plugin 'frazrepo/vim-rainbow'
 Plugin 'dense-analysis/ale'
@@ -138,10 +144,8 @@ endfunction
 autocmd BufWritePre *.py :call AddStamp()
 
 let g:tex_flavor='latex'
-let g:vimtex_view_method='evince'
-let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg'
+let g:vimtex_quickfix_mode=2
+set conceallevel=2
 
 " Color configuration
 if (empty($TMUX))
@@ -166,3 +170,15 @@ autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 let g:rainbow_active = 1
+
+" Trigger configuration. You need to change this to something other than
+" <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<Esc>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
