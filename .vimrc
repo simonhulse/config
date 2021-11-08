@@ -146,6 +146,7 @@ autocmd BufWritePre *.py :call AddStamp()
 let g:tex_flavor='latex'
 let g:vimtex_quickfix_mode=2
 set conceallevel=2
+let g:vimtex_view_method='zathura'
 
 " Color configuration
 if (empty($TMUX))
@@ -181,4 +182,3 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-
