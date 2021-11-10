@@ -1,17 +1,22 @@
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set textwidth=79
 set expandtab
 set autoindent
 set fileformat=unix
-set colorcolumn=80
+set colorcolumn=88
+
+let python_highlight_all=1
 
 let g:SimpylFold_fold_import=0
 let g:SimpylFold_docstring_preview=1
+
 let g:ycm_autoclose_preview_window_after_completion=1
-map <leader> g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-let python_highlight_all=1
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+let b:ale_fixers = {'python': ['black']}
+let b:ale_linters = {'python': ['flake8', 'pydocstyle']}
+let b:ale_fix_on_save = 1
 
 " Comment/uncomment
 nnoremap <expr> <leader>c getline(".") =~ '^\s*#' ? '^"_2x' : 'I# <esc>`['

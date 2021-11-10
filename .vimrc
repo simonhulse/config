@@ -15,10 +15,6 @@ set laststatus=2             "https://github.com/itchyny/lightline.vim/blob/mast
 set noshowmode               " With lightline, there isn't much need for showmode
 set foldlevel=99
 
-set backup
-set backupdir=~/Documents/config/
-set backupcopy=yes
-
 " Setup undo to work between vim sessions
 if !isdirectory($HOME."/.vim")
     call mkdir($HOME."/.vim", "", 0770)
@@ -28,6 +24,14 @@ if !isdirectory($HOME."/.vim/undo-dir")
 endif
 set undodir=~/.vim/undo-dir
 set undofile
+
+" Configure file backups
+if !isdirectory($HOME."/.vim/backups")
+    call mkdir($HOME."/.vim/backups", "", 0700)
+endif
+set backup
+set backupdir=~/.vim/backups
+set backupcopy=yes
 
 " ---Mappings---
 let mapleader = " "
@@ -142,11 +146,6 @@ function AddStamp()
 endfunction
 
 autocmd BufWritePre *.py :call AddStamp()
-
-let g:tex_flavor='latex'
-let g:vimtex_quickfix_mode=2
-set conceallevel=2
-let g:vimtex_view_method='zathura'
 
 " Color configuration
 if (empty($TMUX))
