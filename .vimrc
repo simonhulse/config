@@ -81,6 +81,8 @@ inoremap <Up> <nop>
 inoremap <Down> <nop>
 " Delete contents of line but not line itself
 nnoremap dl ddO<esc>
+" Template for global substitute command
+nnoremap <F4> :%s///g<left><left><left>
 
 " ---Setup Vundle---
 filetype off                  " required
@@ -97,12 +99,8 @@ Plugin 'gmarik/Vundle.vim'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
-" Track the engine.
 Plugin 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
-
 Plugin 'lervag/vimtex'
 Plugin 'frazrepo/vim-rainbow'
 Plugin 'dense-analysis/ale'
@@ -115,6 +113,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'itchyny/lightline.vim'
+Plugin 'tpope/vim-commentary'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -145,7 +144,7 @@ function AddStamp()
     call setline(4, '# Last Edited: ' . strftime('%c'))
 endfunction
 
-autocmd BufWritePre *.py :call AddStamp()
+" autocmd BufWritePre *.py :call AddStamp()
 
 " Color configuration
 if (empty($TMUX))
@@ -168,8 +167,6 @@ hi! Normal ctermbg=NONE guibg=NONE
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-
-let g:rainbow_active = 1
 
 " Trigger configuration. You need to change this to something other than
 " <tab> if you use one of the following:
