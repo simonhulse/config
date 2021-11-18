@@ -60,7 +60,14 @@ files = [
     FromTo(configdir / ".config/matplotlib", homedir / ".config/matplotlib"),
     FromTo(configdir / ".config/zathura", homedir / ".config/zathura"),
     FromTo(configdir / ".config/flake8", homedir / ".config/flake8"),
-    FromTo(configdir / "pygments/gruvbox.py", get_pygments_styles_dir() / "gruvbox.py"),
+    FromTo(
+        configdir / "pygments/gruvboxdark.py",
+        get_pygments_styles_dir() / "gruvboxdark.py",
+    ),
+    FromTo(
+        configdir / "pygments/gruvboxlight.py",
+        get_pygments_styles_dir() / "gruvboxlight.py",
+    ),
 ]
 
 for f in files:
