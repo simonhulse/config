@@ -14,6 +14,7 @@ setlocal spell spelllang=en_gb
 hi clear SpellBad
 hi SpellBad cterm=underline
 
+nnoremap <localleader>c :call ftplugin#tex#ToggleConceal()<cr>
 " Check for the presence of the file vimspell.utf-8.add in file dir, and the 4
 " parents above it, and set this as the spellfile if found.
 let dir = expand('%:p:h')

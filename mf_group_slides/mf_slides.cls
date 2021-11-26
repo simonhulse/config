@@ -27,7 +27,7 @@ Scale=0.8,%
 \setmathfont{Garamond-Math}[
 Path         = /home/simon/.fonts/,%
 Extension    = .otf,%
-StylisticSet = {1,8,5},%
+StylisticSet = {5},%
 Scale=0.8,%
 ]
 

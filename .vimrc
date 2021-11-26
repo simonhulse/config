@@ -83,6 +83,8 @@ inoremap <Down> <nop>
 nnoremap dl ddO<esc>
 " Template for global substitute command
 nnoremap <F4> :%s///g<left><left><left>
+" Jump to previous buffer
+nnoremap # :b#<cr>
 
 " ---Setup Vundle---
 filetype off                  " required

@@ -4,6 +4,17 @@ def math():
 
 endglobal
 
+snippet cols "Columns" b
+\begin{columns}
+	\begin{column}{$1\textwidth}
+		$2
+	\end{column}
+	\begin{column}{$3\textwidth}
+		$4
+	\end{column}
+\end{columns}
+endsnippet
+
 snippet enum "Enumerate" b
 \begin{enumerate}
     \item $0
@@ -18,8 +29,14 @@ endsnippet
 
 snippet eqn "Equation" b
 \begin{equation}
-	$0
+	$0.
 \end{equation}
+endsnippet
+
+snippet frm "Frame" b
+\begin{frame}
+	\frametitle{$0}
+\end{frame}
 endsnippet
 
 snippet beg "Start/end of an environment" b

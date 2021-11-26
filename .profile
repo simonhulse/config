@@ -8,8 +8,12 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-if [ -d "$HOME/progs/bin" ] ; then
-    PATH="$HOME/progs/bin:$PATH"
+if [ -d "$HOME/Documents/code/shell/wicked_cool_shell_scripts" ] ; then
+    PATH="$HOME/Documents/code/shell/wicked_cool_shell_scripts:$PATH"
+fi
+
+if [ -d "$HOME/progs/texlive/2021/bin/x86_64-linux" ] ; then
+    PATH="$HOME/progs/texlive/2021/bin/x86_64-linux:$PATH"
 fi
 
 if [ -d "$HOME/.local/bin" ] ; then
@@ -17,12 +21,11 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 if [ -d "$HOME/.cargo/bin" ] ; then
-    echo "YEP"
     PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-if [ -d "$HOME/Documents/code/shell/wicked_cool_shell_scripts" ] ; then
-    PATH="$HOME/Documents/code/shell/wicked_cool_shell_scripts:$PATH"
+if [ -d "$HOME/progs/bin" ] ; then
+    PATH="$HOME/progs/bin:$PATH"
 fi
 
 export PATH
