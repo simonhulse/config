@@ -1,0 +1,28 @@
+\documentclass{mf_slides}
+\def\shortdate{\leavevmode\hbox{\twodigits\day-\twodigits\month-\the\year}}
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
+
+\title[Short Title]{Long, Full Title for the First Slide}
+\author{\textsc{Simon Hulse} \\ \texttt{simon.hulse@chem.ox.ac.uk}}
+\date[\shortdate]{\today}
+
+%%% SLIDE CONTENT %%%
+
+\begin{document}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Slide One}
+  \begin{itemize}
+      \item Here is a list with FIDs as bullets. Wow.
+      \item But we're not done yet...
+      \begin{itemize}
+          \item Sub-lists have spectra for bullets.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\end{document}

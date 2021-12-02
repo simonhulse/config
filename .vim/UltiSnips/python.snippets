@@ -1,0 +1,39 @@
+snippet inp "import numpy" b
+import numpy as np
+
+endsnippet
+
+snippet impl "import matplotlib" b
+import matplotlib as mpl
+
+endsnippet
+
+snippet iplt "import pyplot" b
+import matplotlib.pyplot as plt
+
+endsnippet
+
+snippet ipath "import Path" b
+from pathlib import Path
+
+endsnippet
+
+snippet plot "Setup a quick mpl plot" b
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots()
+ax.plot($1, $2)
+plt.show()
+endsnippet
+
+snippet def "Setup a function" b
+def $1($2) -> $3:
+	$4
+endsnippet
+
+snippet class "Setup a class" b
+class $1($2):
+	"""$3"""
+
+	def __init__(self, $4):
+		$5
+endsnippet

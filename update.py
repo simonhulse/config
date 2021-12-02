@@ -64,11 +64,13 @@ files = [
         configdir / "pygments/gruvboxdark.py",
         get_pygments_styles_dir() / "gruvboxdark.py",
     ),
-    FromTo(
-        configdir / "pygments/gruvboxlight.py",
-        get_pygments_styles_dir() / "gruvboxlight.py",
-    ),
 ]
+
+pygmentspath = get_pygments_styles_dir()
+if pygmentspath is not None:
+    files.append(FromTo(configdir / "pygments/gruvboxlight.py",
+                        pygmentspath / "gruvboxlight"))
+
 
 for f in files:
     counter = 0

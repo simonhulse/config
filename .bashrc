@@ -42,6 +42,10 @@ alias gclo="git clone"
 alias gl="git log --oneline --decorate --graph --all"
 alias groot='cd $(git rev-parse --show-toplevel)'
 
+if [ -x "$(command -v xclip)" ] ; then
+    alias xclip="xclip -selection clipboard"
+fi
+
 # Misc stuff
 alias grep='grep --color=auto'
 # https://www.homeonrails.com/2016/05/truecolor-in-gnome-terminal-tmux-and-neovim/
