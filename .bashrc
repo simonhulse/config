@@ -53,6 +53,8 @@ alias tmux="env TERM=xterm-256color tmux"
 alias vi='vim'
 
 # Oxford Chemistry aliases
+alias belladonna="ssh -X jesu2901@belladonna.chem.ox.ac.uk"
+alias parsley="ssh -X jesu2901@parsley.chem.ox.ac.uk"
 alias ciscoconnect="/opt/cisco/anyconnect/bin/vpn -s connect vpn.ox.ac.uk"
 alias mfgroup="sudo mount -t cifs -o user=mfgroup,vers=3\.0 //chem.ox.ac.uk/Research/ /media/samba"
 alias chemdata="sudo mount -t cifs -o user=mfgroup,vers=3\.0 //chem.ox.ac.uk/srf /media/samba"
