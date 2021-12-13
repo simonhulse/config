@@ -121,6 +121,10 @@ Plugin 'tpope/vim-commentary'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" Jump to next ALE linting error.
+nnoremap <leader>aj :ALENext<cr>
+nnoremap <leader>ak :ALEPrevious<cr>
+
 " Write with W
 command! W write
 " Remove trailing whitespace upon save
