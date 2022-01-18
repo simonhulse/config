@@ -7,6 +7,6 @@ set fileformat=unix
 set colorcolumn=88
 
 let python_highlight_all=1
-let b:ale_fixers = ['black']
+let b:ale_fixers = []
 let b:ale_fix_on_save = 1
-let b:ale_linters = ['flake8', 'pydocstyle']
+let b:ale_linters = ['flake8']

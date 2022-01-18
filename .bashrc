@@ -42,15 +42,21 @@ alias gclo="git clone"
 alias gl="git log --oneline --decorate --graph --all"
 alias groot='cd $(git rev-parse --show-toplevel)'
 
+# Volume control
+if [ -x "$(command amixer)" ] ; then
+    alias volup="amixer sset Master 10%+"
+    alias voldown="amixer sset Master 10%-"
+    alias voltoggle="amixer sset Master toggle"
+fi
+
 if [ -x "$(command -v xclip)" ] ; then
     alias xclip="xclip -selection clipboard"
 fi
 
 # Misc stuff
 alias grep='grep --color=auto'
-# https://www.homeonrails.com/2016/05/truecolor-in-gnome-terminal-tmux-and-neovim/
-alias tmux="env TERM=xterm-256color tmux"
 alias vi='vim'
+alias sv="source .venv/bin/activate"
 
 # Oxford Chemistry aliases
 alias belladonna="ssh -X jesu2901@belladonna.chem.ox.ac.uk"
