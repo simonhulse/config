@@ -85,6 +85,8 @@ nnoremap dl ddO<esc>
 nnoremap <F4> :%s///g<left><left><left>
 " Jump to previous buffer
 nnoremap # :b#<cr>
+" Paste with initial space
+nnoremap <leader>p a<space><esc>p
 
 " ---Setup Vundle---
 filetype off                  " required
