@@ -51,3 +51,18 @@ backend=biber,%
 style=numeric-comp,%
 ]{biblatex}
 
+% Stuff I frequently need to write out
+\newcommand{\btheta}{\symbf{\vartheta}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\Ftheta}{\mathcal{F}\hspace{-1.5pt}\left(\symbf{\vartheta}\right)}
+\newcommand{\gradFtheta}{\nabla_{\btheta}^{\vphantom{2}}\mathcal{F}\hspace{-2pt}\left(\symbf{\vartheta}\right)}
+\newcommand{\hessFtheta}{\nabla_{\btheta}^2\mathcal{F}\hspace{-2pt}\left(\symbf{\vartheta}\right)}
+\newcommand{\bx}{\symbf{x}}
+\newcommand{\bxtheta}{\symbf{x}\hspace{-2pt}\left(\symbf{\vartheta}\right)}
+\newcommand{\by}{\symbf{y}}
+\newcommand{\yminusx}{\left(\hspace{1pt}\by - \bxtheta\right)}
+\newcommand{\iu}{\mathrm{i}}
+\newcommand{\btau}{\symbf{\tau}}
+\newcommand{\dt}{\symup\Delta t}
+\newcommand{\Jxtheta}{\symbf{J}_{\bx}\hspace{-2pt}\left(\btheta\right)}
+\newcommand{\dxdthetai}{\frac{\partial \bx}{\partial \vartheta_i}}
