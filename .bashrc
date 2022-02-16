@@ -78,6 +78,15 @@ if [ -d "$HOME/Documents/DPhil" ] ; then
             alias espyviewdocs="o $NMRESPYPATH/docs/_build/html/content/index.html"
         fi
     fi
+    if [ -d "$HOME/Documents/DPhil/projects/simulations/nmr_sims" ] ; then
+        NMRSIMSPATH="$HOME/Documents/DPhil/projects/simulations/nmr_sims"
+        alias sims="cd $NMRSIMSPATH"
+        if [ -d "$NMRSIMSPATH/.venv" ] ; then
+            alias simssource="source $NMRSIMSPATH/.venv/bin/activate"
+            alias simsbuilddocs="simssource && cd $NMRSIMSPATH/docs && sphinx-build -b html . _build/html && cd -"
+            alias simsviewdocs="o $NMRSIMSPATH/docs/_build/html/content/index.html"
+        fi
+    fi
     if [ -d "$HOME/Documents/DPhil/journal" ] ; then
         JOURNALPATH="$HOME/Documents/DPhil/journal"
         # TODO needs fixing
