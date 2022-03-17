@@ -18,22 +18,22 @@ from pathlib import Path
 
 endsnippet
 
-snippet plot "Setup a quick mpl plot" b
+snippet plot2d "Setup a quick 2D mpl plot" b
+import matplotlib as mpl
+mpl.use("tkAgg")
 import matplotlib.pyplot as plt
-fig, ax = plt.subplots()
+fig = plt.figure()
+ax = fig.add_subplot()
 ax.plot($1, $2)
 plt.show()
 endsnippet
 
-snippet def "Setup a function" b
-def $1($2) -> $3:
-	$4
-endsnippet
-
-snippet class "Setup a class" b
-class $1($2):
-	"""$3"""
-
-	def __init__(self, $4):
-		$5
+snippet plot3d "Setup a quick 3D mpl plot" b
+import matplotlib as mpl
+mpl.use("tkAgg")
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(projection='3d')
+ax.plot_wireframe($1, $2, $3)
+plt.show()
 endsnippet
