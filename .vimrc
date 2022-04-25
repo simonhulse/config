@@ -87,6 +87,8 @@ nnoremap <F4> :%s///g<left><left><left>
 nnoremap # :b#<cr>
 " Paste with initial space
 nnoremap <leader>p a<space><esc>p
+" Break long line up to the set text wrapping length
+nnoremap <leader>b 0v$gq
 
 " ---Setup Vundle---
 filetype off                  " required
@@ -134,25 +136,28 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Save a file as soon as it is created
 autocmd BufNewFile * :write
 
+let g:add_stamp=1
 " Add stamp to top of python scripts
 function AddStamp()
-    let secondline=getline(2)
-    if secondline != '# Simon Hulse'
-        :normal gg
-        let c = 1
-        while c <= 5
-            :normal O
-            let c += 1
-        endwhile
-        call setline(2, '# Simon Hulse')
-        call setline(3, '# simon.hulse@chem.ox.ac.uk')
-        :normal ``
+    if (g:add_stamp == 1)
+        let secondline=getline(2)
+        if secondline != '# Simon Hulse'
+            :normal gg
+            let c = 1
+            while c <= 5
+                :normal O
+                let c += 1
+            endwhile
+            call setline(2, '# Simon Hulse')
+            call setline(3, '# simon.hulse@chem.ox.ac.uk')
+            :normal ``
+        endif
+        call setline(1, '# ' . expand('%:t'))
+        call setline(4, '# Last Edited: ' . strftime('%c'))
     endif
-    call setline(1, '# ' . expand('%:t'))
-    call setline(4, '# Last Edited: ' . strftime('%c'))
 endfunction
 
-" autocmd BufWritePre *.py :call AddStamp()
+autocmd BufWritePre *.py :call AddStamp()
 
 " Color configuration
 if (empty($TMUX))
