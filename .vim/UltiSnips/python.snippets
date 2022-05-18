@@ -37,3 +37,12 @@ ax = fig.add_subplot(projection='3d')
 ax.plot_wireframe($1, $2, $3)
 plt.show()
 endsnippet
+
+snippet flipx "Revese x-axis limits" b
+ax.set_xlim(reversed(ax.get_xlim()))
+endsnippet
+
+snippet flipy "Revese y-axis limits" b
+ax.set_ylim(reversed(ax.get_ylim()))
+endsnippet
+
