@@ -106,18 +106,12 @@ Plugin 'gmarik/Vundle.vim'
 " used Bundle instead of Plugin)
 
 Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
 Plugin 'lervag/vimtex'
-Plugin 'frazrepo/vim-rainbow'
 Plugin 'dense-analysis/ale'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'rust-lang/rust.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'morhetz/gruvbox'
-Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'skywind3000/asyncrun.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-commentary'
 
@@ -175,11 +169,6 @@ let g:gruvbox_contrast_light='hard'
 let g:gruvbox_transparent_bg=1
 colorscheme gruvbox
 hi! Normal ctermbg=NONE guibg=NONE
-
-" Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 " Trigger configuration. You need to change this to something other than
 " <tab> if you use one of the following:
