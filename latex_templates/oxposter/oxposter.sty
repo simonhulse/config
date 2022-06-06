@@ -1,0 +1,108 @@
+\RequirePackage{silence}
+
+\definecolorstyle{Ox} {
+    \definecolor{oxblue}{HTML}{002E60}
+    \definecolor{white}{HTML}{ffffff}
+    \definecolor{black}{HTML}{000000}
+}{
+    % Background colors
+    \colorlet{backgroundcolor}{white}
+    \colorlet{framecolor}{oxblue}
+    % Title colors
+    \colorlet{titlefgcolor}{white}
+    \colorlet{titlebgcolor}{oxblue}
+    % Block colors
+    \colorlet{blocktitlebgcolor}{oxblue}
+    \colorlet{blocktitlefgcolor}{white}
+    \colorlet{blockbodybgcolor}{white}
+    \colorlet{blockbodyfgcolor}{black}
+}
+
+\definetitlestyle{Ox}{
+    width=\textwidth,%
+    roundedcorners=0,%
+    linewidth=0pt,%
+    titletotopverticalspace=0pt,%
+}{
+    \begin{scope}[
+        line width=\titlelinewidth,%
+        rounded corners=\titleroundedcorners,%
+    ]
+        \draw[color=blocktitlebgcolor, fill=titlebgcolor]
+            (\titleposleft,\titleposbottom) rectangle (\titleposright,\titlepostop);
+        \node[anchor=west] at (TP@title.west) {
+            \includegraphics[height=\dimexpr\titlepostop-\titleposbottom]
+            {oxfordlogo.png}
+        };
+    \end{scope}
+}
+
+\settitle{
+    \hspace*{300pt}
+    \parbox{\dimexpr\textwidth-400pt}{%
+        \centering
+        \color{titlefgcolor}
+        {\Huge \textbf{\@title} \par}
+        \vspace*{1em} {\huge \textit{\@author} \par}
+        \vspace*{1em} {\LARGE \@institute}
+    }
+}
+
+\defineblockstyle{Ox}{
+    titlewidthscale=1,%
+    bodywidthscale=1,%
+    titleleft,%
+    linewidth=4pt,%
+}{
+    \draw[
+        color=framecolor,%
+        fill=blockbodybgcolor,%
+        line width=\blocklinewidth,%
+    ] (blockbody.south west) rectangle (blockbody.north east);
+    \ifBlockHasTitle
+    \draw[
+        color=framecolor,%
+        fill=blocktitlebgcolor,%
+        line width=\blocklinewidth,%
+    ] (blocktitle.south west) rectangle (blocktitle.north east);
+    \fi
+}
+
+\definelayouttheme{OxPoster}{
+    \usecolorstyle{Ox}
+    \usebackgroundstyle{Default}
+    \usetitlestyle{Ox}
+    \useblockstyle{Ox}
+    \useinnerblockstyle{Table}
+    \usenotestyle{Corner}
+}
+
+%%% font configuration
+\RequirePackage{fontspec}
+\RequirePackage[math-style=ISO,bold-style=ISO]{unicode-math}
+
+\setmainfont{Foust}[
+    Path           = /home/simon/.fonts/FoundrySterling/,%
+    Extension      = .ttf,%
+    UprightFont    = *bk_,%
+    BoldFont       = *bd_,%
+    ItalicFont     = *it_,%
+]
+
+% Maths font: Garamond Maths
+\setmathfont{FiraMath-Regular}[
+Path         = /home/simon/.fonts/,%
+Extension    = .otf,%
+Scale          = MatchLowercase,%
+]
+
+% Monospaced font: Julia Mono
+\setmonofont{JuliaMono}[
+Path           = /home/simon/.fonts/juliamono/,%
+Extension      = .ttf,%
+Scale          = MatchLowercase,%
+UprightFont    = *-Regular,%
+BoldFont       = *-Bold,%
+ItalicFont     = *-RegularItalic,%
+BoldItalicFont = *-BoldItalic,%
+]
