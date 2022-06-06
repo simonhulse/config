@@ -55,6 +55,7 @@ fi
 
 # Misc stuff
 alias grep='grep --color=auto'
+alias v='vim'
 alias vi='vim'
 alias sv="source .venv/bin/activate"
 

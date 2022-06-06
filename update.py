@@ -1,3 +1,8 @@
+# update.py
+# Simon Hulse
+# simon.hulse@chem.ox.ac.uk
+# Last Edited: Mon 21 Feb 2022 17:19:12 GMT
+
 from dataclasses import dataclass
 import pathlib
 import subprocess
@@ -17,6 +22,7 @@ def get_pygments_styles_dir():
         .stdout.decode("utf-8")
         .rstrip()
     )
+    print(pygmentise_exe)
     if pygmentise_exe:
         with open(pygmentise_exe, "r") as fh:
             python_exe = fh.readline().replace("#!", "").rstrip()
