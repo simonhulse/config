@@ -10,14 +10,12 @@ from pygments.token import (
     Keyword,
     Literal,
     Name,
-    Number,
     Operator,
     Other,
     Punctuation,
     String,
     Text,
     Token,
-    Whitespace,
 )
 
 try:
@@ -139,7 +137,7 @@ class GruvboxdarkStyle(Style):
         # Might be better suited as Delimiter. *Blue. Or Aqua?* nah
         Punctuation: FOREGROUND,  # class: 'p'
         String: GREEN,  # class: 's'
-        String.Affix: f"{GREEN} underline",,
+        String.Affix: f"{GREEN} underline",
         String.Backtick: GREEN,  # class: 'sb'
         String.Char: FOREGROUND,  # class: 'sc'
         String.Doc: f"italic {GREEN}",  # class: 'sd'
