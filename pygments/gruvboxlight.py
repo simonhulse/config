@@ -10,14 +10,12 @@ from pygments.token import (
     Keyword,
     Literal,
     Name,
-    Number,
     Operator,
     Other,
     Punctuation,
     String,
     Text,
     Token,
-    Whitespace,
 )
 
 try:
