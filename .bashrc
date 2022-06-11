@@ -31,13 +31,15 @@ fi
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias home="cd $HOME"
 alias root="cd /"
+
+alias grep='grep --color=auto'
 
 # Git commands
 alias gi="git init"
 alias gs="git status"
 alias gcom="git commit -m"
+alias gcoma="git commit --amend"
 alias gclo="git clone"
 alias gl="git log --oneline --decorate --graph --all"
 alias groot='cd $(git rev-parse --show-toplevel)'
@@ -47,16 +49,18 @@ if [ -x "$(command amixer)" ] ; then
     alias volup="amixer sset Master 10%+"
     alias voldown="amixer sset Master 10%-"
     alias voltoggle="amixer sset Master toggle"
+alias gcom="git commit -m"
 fi
 
 if [ -x "$(command -v xclip)" ] ; then
     alias xclip="xclip -selection clipboard"
 fi
 
-# Misc stuff
-alias grep='grep --color=auto'
+# Vim things
 alias v='vim'
 alias vi='vim'
+
+# Python things
 alias sv="source .venv/bin/activate"
 
 # Oxford Chemistry aliases
@@ -121,6 +125,9 @@ function parse_git_branch {
 }
 
 export PS1="\u@\h:\w\$(parse_git_branch)$ "
+
+# Vim keybindings in terminal
+set -o vi
 
 # Silly welcome using cowsay
 COWS=(/usr/share/cowsay/cows/*)
