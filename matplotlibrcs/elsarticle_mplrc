@@ -1,0 +1,40 @@
+# elsarticle.mplstyle
+
+# FIGURE
+figure.autolayout: True
+
+# SAVEFIG
+savefig.dpi: 600
+savefig.transparent: True
+
+# AXES
+axes.linewidth: 1.2
+axes.spines.right: False
+axes.spines.top: False
+axes.xmargin: .0
+axes.ymargin: .03
+
+# LINES
+lines.linewidth: 1.2
+
+# FONT (XeLaTeX) - Garamond and Garamond math
+font.family: serif
+text.usetex: True
+pgf.rcfonts: False
+pgf.preamble: \usepackage{amsmath} \usepackage{xcolor} \usepackage{nicefrac} \usepackage{metalogo} \usepackage{siunitx} \usepackage{txfonts}
+pgf.texsystem: pdflatex
+
+# COLOR
+axes.prop_cycle: cycler('color', ['E42A00', '0051FE', 'E6AC00', 'A01FDF', '28A428',  'FF7B00'])
+
+# TICKS
+xtick.labelsize: small
+ytick.labelsize: small
+
+# LEGEND
+legend.edgecolor: k
+legend.framealpha: 1.
+legend.facecolor: fff2e1
+
+# PATCHES
+patch.linewidth: 1.2 # mainly to increase legend linewidth
