@@ -56,3 +56,20 @@ snippet flipy "Revese y-axis limits" b
 ax.set_ylim(reversed(ax.get_ylim()))
 endsnippet
 
+snippet gridspec "Create figure with gridspec" b
+fig, axs = plt.subplots(
+	nrows=$1,
+	ncols=$2,
+	gridspec_kw={
+		"left": $3,
+		"right": $4,
+		"bottom": $5,
+		"top": $6,
+		"wspace": $7,
+		"width_ratios": $8,
+		"hspace": $9,
+		"height_ratios": $10,
+	},
+	figsize=$11,
+)
+endsnippet
