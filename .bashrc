@@ -27,6 +27,8 @@ else
     alias la="ls -a"
 fi
 
+alias ud="sudo apt-get update && sudo apt-get upgrade"
+
 # Navigation
 alias ..="cd .."
 alias ...="cd ../.."
@@ -62,6 +64,7 @@ alias vi='vim'
 
 # Python things
 alias sv="source .venv/bin/activate"
+alias pup="pip install --upgrade pip"
 
 # Oxford Chemistry aliases
 alias belladonna="ssh -X jesu2901@belladonna.chem.ox.ac.uk"
