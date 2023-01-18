@@ -82,8 +82,10 @@ if [ -d "$HOME/Documents/DPhil" ] ; then
         alias espy="cd $NMRESPYPATH"
         if [ -d "$NMRESPYPATH/.venv" ] ; then
             alias espysource="source $NMRESPYPATH/.venv/bin/activate"
-            alias espybuilddocs="espysource && cd $NMRESPYPATH/docs && sphinx-build -b html . _build/html && cd -"
-            alias espyviewdocs="o $NMRESPYPATH/docs/_build/html/content/index.html"
+            alias espybuilddocs="espysource && cd $NMRESPYPATH/docs && ./builddocs.sh && cd -"
+            alias espyviewhtml="sensible-browser $NMRESPYPATH/docs/_build/html/index.html"
+            alias espyviewpdf="evince $NMRESPYPATH/docs/_build/latex/nmr-espy.pdf"
+            alias espyvenv="cd $NMRESPYPATH && rm -rf .venv; python3.9 -m venv .venv && source .venv/bin/activate && pip install --upgrade pip && pip install -e .[dev,docs] && cd -"
         fi
     fi
     if [ -d "$HOME/Documents/DPhil/projects/simulations/nmr_sims" ] ; then
