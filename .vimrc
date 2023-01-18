@@ -14,6 +14,7 @@ set expandtab
 set laststatus=2             "https://github.com/itchyny/lightline.vim/blob/master/README.md#introduction
 set noshowmode               " With lightline, there isn't much need for showmode
 set foldlevel=99
+set mouse=a                  " Allow mouse (mainly so I jump quickly with the cursor)
 
 " Setup undo to work between vim sessions
 if !isdirectory($HOME."/.vim")
