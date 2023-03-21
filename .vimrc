@@ -117,6 +117,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'skywind3000/asyncrun.vim'
+Plugin 'embear/vim-localvimrc'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
