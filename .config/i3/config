@@ -86,10 +86,10 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# I like to use split mode all the time, so have removed these default bindings
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -183,6 +183,10 @@ bindsym Print exec gnome-screenshot -i
 bindsym $mod+Print exec gnome-screenshot -a
 # Load brave-browser
 bindsym $mod+b exec brave-browser
+# Load evince
+bindsym $mod+e exec evince
+# Load zathura
+bindsym $mod+z exec zathura
 # Load pulse audio GUI
 bindsym $mod+p exec pavucontrol
 
