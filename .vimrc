@@ -37,6 +37,8 @@ set backupcopy=yes
 " ---Mappings---
 let mapleader = " "
 let maplocalleader = "\\"
+" Deny visual mode
+nnoremap Q <nop>
 " Save file with leader instead of colon
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
@@ -184,3 +186,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+let g:localvimrc_enable=1
+let g:localvimrc_ask=0
