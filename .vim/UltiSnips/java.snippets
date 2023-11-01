@@ -1,0 +1,25 @@
+snippet ptln "Print line" b
+System.out.println($1);
+
+endsnippet
+
+snippet pt "Print" b
+System.out.print($1);
+
+endsnippet
+
+snippet main "Create class with main method" b
+class $1 {
+	public static void main(String ... args) {
+		$2
+	}
+}
+
+endsnippet
+
+snippet cls "Create class" b
+class $1 {
+	$0
+}
+
+endsnippet
