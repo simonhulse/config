@@ -149,7 +149,7 @@ function AddStamp()
                 let c += 1
             endwhile
             call setline(2, '# Simon Hulse')
-            call setline(3, '# simon.hulse@chem.ox.ac.uk')
+            call setline(3, '# simonhulse@protonmail.com')
             :normal ``
         endif
         call setline(1, '# ' . expand('%:t'))
