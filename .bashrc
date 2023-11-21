@@ -138,3 +138,5 @@ set -o vi
 COWS=(/usr/share/cowsay/cows/*)
 RAND_COW=$(($RANDOM % $( ls /usr/share/cowsay/cows/*.cow | wc -l )))
 echo Hello, Simon | cowsay -f ${COWS[$RAND_COW]}
+
+alias pls='sudo "$BASH" -c "$(history -p !!)"'
