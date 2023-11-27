@@ -15,6 +15,7 @@ set laststatus=2             "https://github.com/itchyny/lightline.vim/blob/mast
 set noshowmode               " With lightline, there isn't much need for showmode
 set foldlevel=99
 set mouse=a                  " Allow mouse (mainly so I jump quickly with the cursor)
+set backspace=2              " Backspace works in insert mode
 
 " Setup undo to work between vim sessions
 if !isdirectory($HOME."/.vim")
