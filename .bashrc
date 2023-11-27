@@ -27,6 +27,8 @@ else
     alias la="ls -a"
 fi
 
+alias pls='sudo "$BASH" -c "$(history -p !!)"'
+
 alias ud="sudo apt-get update && sudo apt-get upgrade"
 
 # Navigation
@@ -137,3 +139,4 @@ if [[ -x "$(command -v cowsay)" ]] ; then
     cowsay "Hello, Simon"
 fi
 . "$HOME/.cargo/env"
+
