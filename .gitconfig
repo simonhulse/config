@@ -1,0 +1,8 @@
+[user]
+	name = Simon Hulse
+	email = simonhulse@protonmail.com
+[init]
+	defaultBranch = main
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore_global
