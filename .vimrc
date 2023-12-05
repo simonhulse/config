@@ -109,18 +109,28 @@ Plugin 'gmarik/Vundle.vim'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
+" General plugins
 Plugin 'SirVer/ultisnips'
-Plugin 'lervag/vimtex'
-Plugin 'dense-analysis/ale'
-Plugin 'ycm-core/YouCompleteMe'
-Plugin 'rust-lang/rust.vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'skywind3000/asyncrun.vim'
+Plugin 'morhetz/gruvbox'
 Plugin 'embear/vim-localvimrc'
+Plugin 'itchyny/lightline.vim'
+Plugin 'skywind3000/asyncrun.vim'
+Plugin 'dense-analysis/ale'
+
+" .java plugins
+Plugin 'artur-shaik/vim-javacomplete2'"
+
+" .py plugins
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'davidhalter/jedi-vim'
+
+" .tex plugins
+Plugin 'lervag/vimtex'
+
+" .rs plugins
+Plugin 'rust-lang/rust.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -190,3 +200,5 @@ let g:UltiSnipsEditSplit="vertical"
 
 let g:localvimrc_enable=1
 let g:localvimrc_ask=0
+
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
