@@ -140,3 +140,4 @@ if [[ -x "$(command -v cowsay)" ]] ; then
 fi
 . "$HOME/.cargo/env"
 
+alias pls='sudo "$BASH" -c "$(history -p !!)"'
