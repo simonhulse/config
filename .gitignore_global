@@ -1,0 +1,12 @@
+# vim
+*~
+
+# General
+log/
+*.log
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
