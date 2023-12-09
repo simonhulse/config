@@ -1,50 +1,36 @@
-# ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
-# exists.
-# see /usr/share/doc/bash/examples/startup-files for examples.
-# the files are located in the bash-doc package.
+#!/usr/bin/env bash
 
-# the default umask is set in /etc/profile; for setting the umask
-# for ssh logins, install and configure the libpam-umask package.
-#umask 022
+umask 022
 
-if [ -d "$HOME/Documents/code/shell/wicked_cool_shell_scripts" ] ; then
-    PATH="$HOME/Documents/code/shell/wicked_cool_shell_scripts:$PATH"
-fi
+# Hodge-podge of various paths that might exist and contain executables
+paths=(
+    "/usr/local/texlive/2023/bin/x86_64-linux",
+    "$HOME/Documents/code/shell/wicked_cool_shell_scripts",
+    "$HOME/progs/texlive/2021/bin/x86_64-linux",
+    "$HOME/progs/apache-maven-3.9.5/bin",
+    "$HOME/.local/bin",
+    "$HOME/.local/bin/x86_64-linux",
+    "$HOME/progs/bin",
+    "$HOME/utils"
+)
 
-if [ -d "$HOME/progs/texlive/2021/bin/x86_64-linux" ] ; then
-    PATH="$HOME/progs/texlive/2021/bin/x86_64-linux:$PATH"
-fi
+for path in ${paths[*]}
+    do
+        if [ -d path ] ; then
+            PATH="$path:$PATH"
+        fi
+    done
 
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-
-if [ -d "$HOME/.local/bin/x86_64-linux" ] ; then
-    PATH="$HOME/.local/bin/x86_64-linux:$PATH"
-fi
-
-if [ -d "$HOME/.cargo/bin" ] ; then
-    PATH="$HOME/.cargo/bin:$PATH"
-fi
-
-if [ -d "$HOME/progs/bin" ] ; then
-    PATH="$HOME/progs/bin:$PATH"
+if [ -d "$HOME/.cargo/env" ] ; then
+    . "$HOME/.cargo/env"  # Adds $HOME/.cargo/bin to path
 fi
 
 export PATH
-
-if [ -d "$HOME/.cargo/env" ] ; then
-    source "$HOME/.cargo/env"
-fi
-
-
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 export CLICOLOR=1
 
-# if running bash
+# If running bash, include .bashrc if it exists
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
 	. "$HOME/.bashrc"
     fi
