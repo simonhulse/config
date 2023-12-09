@@ -119,12 +119,8 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'dense-analysis/ale'
 
-" .java plugins
-Plugin 'artur-shaik/vim-javacomplete2'"
-
 " .py plugins
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'davidhalter/jedi-vim'
 
 " .tex plugins
 Plugin 'lervag/vimtex'
@@ -200,5 +196,3 @@ let g:UltiSnipsEditSplit="vertical"
 
 let g:localvimrc_enable=1
 let g:localvimrc_ask=0
-
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
