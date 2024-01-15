@@ -68,6 +68,9 @@ set -o vi
 alias sv="source .venv/bin/activate"
 alias pup="pip install --upgrade pip"
 
+# Re-run previous command using sudo
+alias pls='sudo "$BASH" -c "$(history -p !!)"'
+
 # Prevent bash from escaping $ during tab completion
 shopt -s direxpand
 
