@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.com set filetype=bash
+au BufRead,BufNewFile *.com set filetype=csh
