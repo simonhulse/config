@@ -117,7 +117,7 @@ github = "https://github.com/5hulse/{package_name}"
 
 [project.optional-dependencies]
 dev = [
-    "pyproject-flake8",
+    "flake8-pyproject",
     "pytest",
     "pytest-cov",
 ]
