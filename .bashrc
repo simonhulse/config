@@ -14,7 +14,7 @@ alias o="xdg-open"
 alias h="history"
 
 # ls: If `exa` exists, replace ls with this.
-if [[ -x "$(command -v exa)" ]] ; then
+if command -v exa >/dev/null 2>&1; then
     alias l="exa"
     alias ls="exa"
     alias sl="exa"
@@ -25,6 +25,11 @@ else
     alias sl="ls"
     alias ll="ls -l"
     alias la="ls -a"
+fi
+
+if command -v xclip >/dev/null 2>&1; then
+    alias xclip="xclip -selection clipboard"
+    alias cppwd="pwd | xclip -selection clipboard"
 fi
 
 alias ud="sudo apt-get update && sudo apt-get upgrade"
@@ -55,9 +60,6 @@ if [[ -x "$(command -v amixer)" ]] ; then
 alias gcom="git commit -m"
 fi
 
-if [[ -x "$(command -v xclip)" ]] ; then
-    alias xclip="xclip -selection clipboard"
-fi
 
 # Vim
 alias v='vim'
