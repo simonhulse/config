@@ -1,0 +1,54 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{codeblock}[2024/04/10 Customised code blocks]
+
+\RequirePackage{xcolor}
+\RequirePackage{minted,tcolorbox,listings}
+\tcbuselibrary{listings,minted,breakable,skins}
+\definecolor{code_bg}{HTML}{ffffff}
+\renewcommand{\theFancyVerbLine}{\ttfamily\textbf{\small
+    \textcolor{black}{\arabic{FancyVerbLine}}}}
+\newtcbinputlisting[%
+    list inside=mylist,%
+    auto counter,%
+    % number within=chapter,
+]{\mylisting}[5]{%
+    listing only,
+    minted language={#1},
+    listing file={#2},
+    list entry={\protect\numberline{\thetcbcounter} #3},
+    title={{\small\textbf{Code Listing \thetcbcounter:} #4}},
+    label={#5},
+    boxrule=0pt,
+    titlerule=0.5pt,
+    borderline north={0.5pt}{0pt}{black},
+    borderline south={0.5pt}{-0.5pt}{black},
+    code={\setlength{\parskip}{0.05in}},
+    colframe=black,
+    colback=code_bg,
+    coltitle=black,
+    colbacktitle=white,
+    arc=0pt,
+    outer arc=0pt,
+    enhanced,
+    breakable,
+    top=0pt,
+    bottom=0pt,
+    width=\textwidth,
+    minted options = {%
+        style=friendly,
+        linenos,
+        tabsize=0,
+        breaklines,
+        autogobble=false,
+        mathescape,
+        escapeinside=||,
+        numbersep=2.2mm,
+        xleftmargin=4mm,
+        fontsize=\small,
+    },
+    overlay = {%
+    \begin{tcbclipinterior}
+        \fill[code_bg] (frame.south west) rectangle ([xshift=5mm]frame.north west);
+    \end{tcbclipinterior}
+    }
+}
