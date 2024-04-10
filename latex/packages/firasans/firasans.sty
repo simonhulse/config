@@ -1,0 +1,12 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{firasans}[2024/04/10 Incorporate Fira Sans fonts]
+
+\RequirePackage{fontspec}
+\RequirePackage[math-style=ISO,bold-style=ISO]{unicode-math}
+\setmainfont{Fira Sans}[BoldFont={Fira Sans SemiBold}]
+\setmonofont{Fira Mono}
+\setmathfont{Fira Math}[Scale=MatchLowercase]
+\setmathfont{TeX Gyre DejaVu Math}[%
+    Scale     = MatchLowercase,%
+    range     = {\vdots,\ddots},%
+]
