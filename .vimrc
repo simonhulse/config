@@ -110,6 +110,7 @@ Plugin 'gmarik/Vundle.vim'
 " used Bundle instead of Plugin)
 
 " General plugins
+Plugin 'valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'tpope/vim-commentary'
 Plugin 'airblade/vim-gitgutter'
@@ -142,29 +143,6 @@ command! W write
 autocmd BufWritePre * :%s/\s\+$//e
 " Save a file as soon as it is created
 autocmd BufNewFile * :write
-
-let g:add_stamp=1
-" Add stamp to top of python scripts
-function AddStamp()
-    if (g:add_stamp == 1)
-        let secondline=getline(2)
-        if secondline != '# Simon Hulse'
-            :normal gg
-            let c = 1
-            while c <= 5
-                :normal O
-                let c += 1
-            endwhile
-            call setline(2, '# Simon Hulse')
-            call setline(3, '# simonhulse@protonmail.com')
-            :normal ``
-        endif
-        call setline(1, '# ' . expand('%:t'))
-        call setline(4, '# Last Edited: ' . strftime('%c'))
-    endif
-endfunction
-
-autocmd BufWritePre *.py :call AddStamp()
 
 " Color configuration
 if (empty($TMUX))
