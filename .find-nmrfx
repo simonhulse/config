@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+
+from pathlib import Path
+import re
+
+
+possible_roots = [
+    Path(p).expanduser() for p in
+    ["~/Documents/CUNY/projects/nmrfx/", "~/projects/nmrfx/"]
+]
+
+root = None
+for possible_root in possible_roots:
+    if possible_root.is_dir():
+        root = possible_root
+        break
+
+if root is None:
+    # Couldn't find nmrfx
+    exit(1)
+
+analyst_target_dir = root / "nmrfx-analyst/target/"
+
+if not analyst_target_dir.is_dir():
+    # Target directory does not exist.
+    # Probably need to run `mvn clean install -DskipTests`
+    exit(1)
+
+bin_regex = re.compile(r"^nmrfx-analyst-(\d+\.\d+\.\d+(-SNAPSHOT)?)-bin$")
+for directory in analyst_target_dir.iterdir():
+    match_ = re.search(bin_regex, directory.name)
+    if match_ is not None:
+        version_str = match_.group(1)
+        break
+
+path = str(analyst_target_dir / f"nmrfx-analyst-{version_str}-bin/nmrfx-analyst-{version_str}")
+print(path)
+exit(0)
