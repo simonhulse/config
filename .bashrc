@@ -116,6 +116,12 @@ fi
 alias spasrc="sshpass -f ~/.asrcpwd"
 alias sshasrc="sshpass -f ~/.asrcpwd ssh -Y simonhulse@10.16.7.230"
 alias vpnasrc="sudo dpkg -i ~/Documents/CUNY/admin/IT/GlobalProtect/GlobalProtect_UI_deb-5.2.6.0-18.deb"
+rsyncasrc () {
+    for path in "$@"
+    do
+        sshpass -f ~/.asrcpwd rsync -arv "simonhulse@10.16.7.230:$path" .
+    done
+}
 
 # Silly welcome using cowsay
 if [[ -x "$(command -v cowsay)" ]] ; then
