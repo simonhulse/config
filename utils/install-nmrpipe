@@ -1,0 +1,24 @@
+#!/usr/bin/csh
+cd ~/progs
+
+if ( -d nmrpipe ) then
+    rm -r nmrpipe
+endif
+
+mkdir nmrpipe
+cd nmrpipe
+
+cp ~/nmrpipe_files/install.com .
+cp ~/nmrpipe_files/binval.com .
+cp ~/nmrpipe_files/NMRPipeX.tZ .
+cp ~/nmrpipe_files/s.tZ .
+cp ~/nmrpipe_files/plugin.smile.tZ .
+
+chmod a+r *.tZ *.Z *.tar
+chmod a+rx *.com
+
+./install.com
+
+rm ~/.cshrc
+
+cd
