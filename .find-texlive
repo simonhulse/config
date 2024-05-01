@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+
+from pathlib import Path
+import re
+
+
+possible_roots = [
+    Path(p).expanduser() for p in
+    ["/usr/local/texlive/", "~/progs/texlive/"]
+]
+
+root = None
+for possible_root in possible_roots:
+    if possible_root.is_dir():
+        root = possible_root
+        break
+
+if root is None:
+    # Couldn't find texlive
+    exit(1)
+
+years = []
+year_regex = re.compile("(\d{4})")
+for directory in root.iterdir():
+    match_ = re.search(year_regex, directory.name)
+    if match_ is not None:
+        year = int(match_.group(1))
+        years.append(year)
+
+year = str(max(years))
+path = str(root / year / "bin/x86_64-linux")
+print(path)
+exit(0)
