@@ -1,0 +1,55 @@
+#!/usr/bin/bash
+
+# Script for creating a basic setup in Ubuntu (this has been tested and works in Ubuntu 22.04 LTS)
+
+### Various useful things to get started
+sudo apt install git build-essential cmake python3 python3-pip python3-dev curl htop xclip
+
+### Vim
+sudo apt install vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+rm \[Vundle\]\ Installer
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_current.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+sudo apt install mono-complete golang nodejs openjdk-17-jdk openjdk-17-jre npm
+cd .vim/bundle/YouCompleteMe
+python3 install.py
+cd -
+
+### Add my configurations
+git clone https://github.com/5hulse/config.git ~/Documents/config
+cp Documents/config/.vimrc ~/
+cp Documents/config/.bashrc ~/
+cp Documents/config/.profile ~/
+cp Documents/config/.bash_profile ~/
+cp Documents/config/.find-nmrfx ~/
+cp Documents/config/.gitignore_global ~/
+cp Documents/config/.gitconfig ~/
+cp -r Documents/config/.vim/autoload ~/.vim/
+cp -r Documents/config/.vim/ftdetect ~/.vim/
+cp -r Documents/config/.vim/ftplugin ~/.vim/
+cp -r Documents/config/.vim/UltiSnips ~/.vim/
+mkdir -p ~/.fonts
+cp -r Documents/config/.fonts/* ~/.fonts/
+fc-cache
+cp -r Documents/config/.config/* ~/.config/
+cp -r Documents/config/utils ~/
+python3 -m pip install --upgrade pip && python3 -m pip install Pygments
+SITEPACKAGES=$(python3 -m site --user-site)
+cp -r Documents/config/pygments/* "$SITEPACKAGES/pygments/styles/"
+
+### Gnome cosmetics
+cp ~/Documents/config/gruvbox_gnome_settings.yml ~/
+dconf load /org/gnome/terminal/ < ~/gruvbox_gnome_settings.yml
+gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
+gsettings set org.gnome.shell.extensions.ding show-home false
+
+### TeX Live
+cd /tmp
+curl -L -o install-tl-unx.tar.gz https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+zcat < install-tl-unx.tar.gz | tar xf -
+rm install-tl-unx.tar.gz
+cd install-tl-*
+sudo perl ./install-tl --no-interaction
