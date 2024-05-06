@@ -20,25 +20,25 @@ cd -
 
 ### Add my configurations
 git clone https://github.com/5hulse/config.git ~/Documents/config
-cp Documents/config/.vimrc ~/
-cp Documents/config/.bashrc ~/
-cp Documents/config/.profile ~/
-cp Documents/config/.bash_profile ~/
-cp Documents/config/.find-nmrfx ~/
-cp Documents/config/.gitignore_global ~/
-cp Documents/config/.gitconfig ~/
-cp -r Documents/config/.vim/autoload ~/.vim/
-cp -r Documents/config/.vim/ftdetect ~/.vim/
-cp -r Documents/config/.vim/ftplugin ~/.vim/
-cp -r Documents/config/.vim/UltiSnips ~/.vim/
+cp ~/Documents/config/.vimrc ~/
+cp ~/Documents/config/.bashrc ~/
+cp ~/Documents/config/.profile ~/
+cp ~/Documents/config/.bash_profile ~/
+cp ~/Documents/config/.find-nmrfx ~/
+cp ~/Documents/config/.gitignore_global ~/
+cp ~/Documents/config/.gitconfig ~/
+cp -r ~/Documents/config/.vim/after ~/.vim/
+cp -r ~/Documents/config/.vim/autoload ~/.vim/
+cp -r ~/Documents/config/.vim/ftdetect ~/.vim/
+cp -r ~/Documents/config/.vim/UltiSnips ~/.vim/
 mkdir -p ~/.fonts
-cp -r Documents/config/.fonts/* ~/.fonts/
+cp -r ~/Documents/config/.fonts/* ~/.fonts/
 fc-cache
-cp -r Documents/config/.config/* ~/.config/
-cp -r Documents/config/utils ~/
+cp -r ~/Documents/config/.config/* ~/.config/
+cp -r ~/Documents/config/utils ~/
 python3 -m pip install --upgrade pip && python3 -m pip install Pygments
 SITEPACKAGES=$(python3 -m site --user-site)
-cp -r Documents/config/pygments/* "$SITEPACKAGES/pygments/styles/"
+cp -r ~/Documents/config/pygments/* "$SITEPACKAGES/pygments/styles/"
 
 ### Gnome cosmetics
 cp ~/Documents/config/gruvbox_gnome_settings.yml ~/
