@@ -18,7 +18,7 @@ nnoremap <localleader>c :call ftplugin#tex#ToggleConceal()<cr>
 
 " Check for the presence of the file vimspell.utf-8.add in file dir,
 " and set this as the spellfile if found.
-let dir = expand('%:p:h')
+let dir = getcwd()
 if filereadable(dir . '/vimspell.utf-8.add')
     let b:spellfile = dir . '/vimspell.utf-8.add'
     let &l:spellfile = b:spellfile
