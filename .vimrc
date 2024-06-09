@@ -1,3 +1,8 @@
+".vimrc
+"Simon Hulse
+"simonhulse@protonmail.com
+"Last Edited: Sun 09 Jun 2024 05:30:52 PM EDT
+
 " ---Basic stuff---
 set nocompatible
 syntax on                    " Syntax highlighting
@@ -129,6 +134,9 @@ Plugin 'lervag/vimtex'
 " .rs plugins
 Plugin 'rust-lang/rust.vim'
 
+" .fish plugins
+Plugin 'dag/vim-fish'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -153,6 +161,24 @@ if (empty($TMUX))
         set termguicolors
     endif
 endif
+
+function AddStamp()
+    if (g:add_stamp == 1)
+        :normal gg
+        if getline(2)[-11:] != 'Simon Hulse'
+            :normal O<esc>dl
+            :normal 4.
+            call setline(2, printf(&commentstring, 'Simon Hulse'))
+            call setline(3, printf(&commentstring, 'simonhulse@protonmail.com'))
+            call setline(5, '')
+        endif
+        call setline(1, printf(&commentstring, expand('%:t')))
+        call setline(4, printf(&commentstring, 'Last Edited: ' . strftime('%c')))
+    endif
+endfunction
+
+let g:add_stamp = 1
+autocmd BufWritePre * :call AddStamp()
 
 set background=dark
 let g:gruvbox_contrast_dark='hard'
