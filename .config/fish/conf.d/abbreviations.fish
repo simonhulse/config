@@ -33,7 +33,7 @@ abbr --add gi 'git init'
 abbr --add gst 'git status'
 abbr --add gco 'git commit'
 abbr --add gcl 'git clone'
-abbr --add gl 'git log --oneline -decorate --graph --all'
+abbr --add gl 'git log --oneline --decorate --graph --all'
 abbr --add groot 'cd $(git rev-parse --show-toplevel)'
 
 # Python
