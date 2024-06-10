@@ -1,7 +1,7 @@
 ".vimrc
 "Simon Hulse
 "simonhulse@protonmail.com
-"Last Edited: Sun 09 Jun 2024 05:30:52 PM EDT
+"Last Edited: Mon 10 Jun 2024 12:40:25 PDT
 
 " ---Basic stuff---
 set nocompatible
@@ -163,17 +163,23 @@ if (empty($TMUX))
 endif
 
 function AddStamp()
-    if (g:add_stamp == 1)
-        :normal gg
-        if getline(2)[-11:] != 'Simon Hulse'
-            :normal O<esc>dl
-            :normal 4.
-            call setline(2, printf(&commentstring, 'Simon Hulse'))
-            call setline(3, printf(&commentstring, 'simonhulse@protonmail.com'))
-            call setline(5, '')
+    if &filetype != ''
+        if (g:add_stamp == 1)
+            let current_line = line('.')
+            let current_col = col('.')
+            :normal gg
+            if stridx(getline(2), 'Simon Hulse') == -1
+                let current_line = current_line + 5
+                :normal O<esc>dl
+                :normal 4.
+                call setline(2, printf(&commentstring, 'Simon Hulse'))
+                call setline(3, printf(&commentstring, 'simonhulse@protonmail.com'))
+                call setline(5, '')
+            endif
+            call setline(1, printf(&commentstring, expand('%:t')))
+            call setline(4, printf(&commentstring, 'Last Edited: ' . strftime('%c')))
+            call cursor(current_line, current_col)
         endif
-        call setline(1, printf(&commentstring, expand('%:t')))
-        call setline(4, printf(&commentstring, 'Last Edited: ' . strftime('%c')))
     endif
 endfunction
 
