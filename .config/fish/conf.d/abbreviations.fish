@@ -1,3 +1,8 @@
+#abbreviations.fish
+#Simon Hulse
+#simonhulse@protonmail.com
+#Last Edited: Mon 10 Jun 2024 10:04:15 PM EDT
+
 # FISH ABBREVIATIONS
 
 # Misc
@@ -30,7 +35,7 @@ abbr --add root 'cd /'
 
 # Git
 abbr --add gi 'git init'
-abbr --add gst 'git status'
+abbr --add gs 'git status'
 abbr --add gco 'git commit'
 abbr --add gcl 'git clone'
 abbr --add gl 'git log --oneline --decorate --graph --all'
