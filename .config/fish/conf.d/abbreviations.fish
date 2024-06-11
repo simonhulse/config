@@ -1,7 +1,7 @@
 #abbreviations.fish
 #Simon Hulse
 #simonhulse@protonmail.com
-#Last Edited: Mon 10 Jun 2024 10:04:15 PM EDT
+#Last Edited: Mon 10 Jun 2024 10:06:22 PM EDT
 
 # FISH ABBREVIATIONS
 
@@ -42,5 +42,5 @@ abbr --add gl 'git log --oneline --decorate --graph --all'
 abbr --add groot 'cd $(git rev-parse --show-toplevel)'
 
 # Python
-abbr --add sv 'source .venv/bin/activate'
+abbr --add sv 'source .venv/bin/activate.fish'
 abbr --add pup 'pip install --upgrade pip'
