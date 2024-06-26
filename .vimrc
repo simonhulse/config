@@ -1,7 +1,7 @@
 ".vimrc
 "Simon Hulse
 "simonhulse@protonmail.com
-"Last Edited: Sat 15 Jun 2024 12:57:25 PM EDT
+"Last Edited: Wed 26 Jun 2024 15:20:00 PDT
 
 " ---Basic stuff---
 set nocompatible
@@ -103,43 +103,40 @@ nnoremap <leader>b 0v$gq
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin()
 
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plug 'gmarik/Vundle.vim'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
 " General plugins
-Plugin 'valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-Plugin 'tpope/vim-commentary'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'morhetz/gruvbox'
-Plugin 'embear/vim-localvimrc'
-Plugin 'itchyny/lightline.vim'
-Plugin 'skywind3000/asyncrun.vim'
-Plugin 'dense-analysis/ale'
+Plug 'valloric/YouCompleteMe', { 'do': 'python3.9 ./install.py', 'commit': 'd98f896' }
+Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-commentary'
+Plug 'airblade/vim-gitgutter'
+Plug 'morhetz/gruvbox'
+Plug 'embear/vim-localvimrc'
+Plug 'itchyny/lightline.vim'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'dense-analysis/ale'
 
 " .py plugins
-Plugin 'vim-scripts/indentpython.vim'
+Plug 'vim-scripts/indentpython.vim'
 
 " .tex plugins
-Plugin 'lervag/vimtex'
+Plug 'lervag/vimtex'
 
 " .rs plugins
-Plugin 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 
 " .fish plugins
-Plugin 'dag/vim-fish'
+Plug 'dag/vim-fish'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 
 " Jump to next ALE linting error.
 nnoremap <leader>aj :ALENext<cr>
