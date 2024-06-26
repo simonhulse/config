@@ -1,7 +1,7 @@
 #abbreviations.fish
 #Simon Hulse
 #simonhulse@protonmail.com
-#Last Edited: Mon 10 Jun 2024 10:06:22 PM EDT
+#Last Edited: Wed 26 Jun 2024 14:55:31 PDT
 
 # FISH ABBREVIATIONS
 
@@ -39,7 +39,7 @@ abbr --add gs 'git status'
 abbr --add gco 'git commit'
 abbr --add gcl 'git clone'
 abbr --add gl 'git log --oneline --decorate --graph --all'
-abbr --add groot 'cd $(git rev-parse --show-toplevel)'
+abbr --add groot 'cd (git rev-parse --show-toplevel)'
 
 # Python
 abbr --add sv 'source .venv/bin/activate.fish'
