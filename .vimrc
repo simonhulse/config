@@ -1,9 +1,30 @@
 ".vimrc
 "Simon Hulse
 "simonhulse@protonmail.com
-"Last Edited: Wed 26 Jun 2024 15:20:00 PDT
+"Last Edited: Tue 02 Jul 2024 14:03:50 EDT
 
-" ---Basic stuff---
+" >>> UNDO FUNCTIONALITY >>>
+" Setup undo to work between vim sessions
+if !isdirectory($HOME."/.vim")
+    call mkdir($HOME."/.vim", "", 0770)
+endif
+if !isdirectory($HOME."/.vim/undo-dir")
+    call mkdir($HOME."/.vim/undo-dir", "", 0700)
+endif
+set undodir=~/.vim/undo-dir
+set undofile
+
+" Configure file backups
+if !isdirectory($HOME."/.vim/backups")
+    call mkdir($HOME."/.vim/backups", "", 0700)
+endif
+
+set backup
+set backupdir=~/.vim/backups
+set backupcopy=yes
+" <<< UNDO FUNCTIONALITY <<<
+
+" >>> BASIC SETUP >>>
 set nocompatible
 syntax on                    " Syntax highlighting
 set splitright               " Vertical window forms to right of current
@@ -21,26 +42,10 @@ set noshowmode               " With lightline, there isn't much need for showmod
 set foldlevel=99
 set mouse=a                  " Allow mouse (mainly so I jump quickly with the cursor)
 set backspace=2              " Backspace works in insert mode
+set nrformats+=alpha         " Allow alphabetical characters to be iterated with CTRL_A and CTRL_X
+" <<< BASIC SETUP <<<
 
-" Setup undo to work between vim sessions
-if !isdirectory($HOME."/.vim")
-    call mkdir($HOME."/.vim", "", 0770)
-endif
-if !isdirectory($HOME."/.vim/undo-dir")
-    call mkdir($HOME."/.vim/undo-dir", "", 0700)
-endif
-set undodir=~/.vim/undo-dir
-set undofile
-
-" Configure file backups
-if !isdirectory($HOME."/.vim/backups")
-    call mkdir($HOME."/.vim/backups", "", 0700)
-endif
-set backup
-set backupdir=~/.vim/backups
-set backupcopy=yes
-
-" ---Mappings---
+" >>> MAPPINGS >>>
 let mapleader = " "
 let maplocalleader = "\\"
 " Deny visual mode
@@ -98,20 +103,15 @@ nnoremap # :b#<cr>
 nnoremap <leader>p a<space><esc>p
 " Break long line up to the set text wrapping length
 nnoremap <leader>b 0v$gq
+" <<< MAPPINGS <<<
 
-" ---Setup Vundle---
-filetype off                  " required
+" >>> PLUGINS >>>
+" Uses Vim Plug
+" To setup Vim Plug, place `plug.vim`:
+" https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" in ~/.vim/autoload/
 
-" set the runtime path to include Vundle and initialize
 call plug#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-" let Vundle manage Vundle, required
-Plug 'gmarik/Vundle.vim'
-
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
 
 " General plugins
 Plug 'valloric/YouCompleteMe', { 'do': 'python3.9 ./install.py', 'commit': 'd98f896' }
@@ -137,28 +137,21 @@ Plug 'rust-lang/rust.vim'
 Plug 'dag/vim-fish'
 
 call plug#end()
+" <<< PLUGINS <<<
 
-" Jump to next ALE linting error.
+" >>> PLUGIN-SPECIFIC MAPPINGS >>>
+" Jump between ALE linting errors.
 nnoremap <leader>aj :ALENext<cr>
 nnoremap <leader>ak :ALEPrevious<cr>
+" <<< PLUGIN-SPECIFIC MAPPINGS <<<
 
+" >>> AUTO-COMMANDS >>>
 " Write with W
-command! W write
-" Remove trailing whitespace upon save
-autocmd BufWritePre * :%s/\s\+$//e
-" Save a file as soon as it is created
-autocmd BufNewFile * :write
+autocmd BufWritePre * :%s/\s\+$//e  " Remove trailing whitespace upon save
+autocmd BufNewFile * :write         " Save a file as soon as it is created
+" <<< AUTO-COMMANDS <<<
 
-" Color configuration
-if (empty($TMUX))
-    if (has("nvim"))
-        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    endif
-    if (has("termguicolors"))
-        set termguicolors
-    endif
-endif
-
+" >>> ADD STAMP UPON SAVE >>>
 function AddStamp()
     if &filetype != ''
         if (g:add_stamp == 1)
@@ -183,26 +176,35 @@ endfunction
 
 let g:add_stamp = 1
 autocmd BufWritePre * :call AddStamp()
+" <<< ADD STAMP UPON SAVE <<<
 
+" >>> GRUVBOX CONFIGURATION >>>
 set background=dark
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='hard'
 let g:gruvbox_transparent_bg=1
 colorscheme gruvbox
-hi! Normal ctermbg=NONE guibg=NONE
 
-" Trigger configuration. You need to change this to something other than
-" <tab> if you use one of the following:
-" - https://github.com/Valloric/YouCompleteMe
-" - https://github.com/nvim-lua/completion-nvim
+if (empty($TMUX))
+    if (has("nvim"))
+        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    endif
+    if (has("termguicolors"))
+        set termguicolors
+    endif
+endif
+" <<< GRUVBOX CONFIGURATION <<<
+
+" >>> UNLTISNIPS CONFIGURATION >>>
 let g:UltiSnipsExpandTrigger="<Esc>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-" If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+" <<< UNLTISNIPS CONFIGURATION <<<
 
+" >>> LOCALVIMRC CONFIGURATION >>>
 let g:localvimrc_enable=1
 let g:localvimrc_ask=0
 let g:localvimrc_reverse=1
 let g:localvimrc_sandbox=0
+" <<< LOCALVIMRC CONFIGURATION <<<
