@@ -8,6 +8,20 @@ System.out.print($1);
 
 endsnippet
 
+snippet apt "Print an array" b
+// ** Ensure you have the following line at the top of the file **
+// import java.util.Arrays;
+System.out.println(Arrays.toString($1));
+
+endsnippet
+
+snippet fori "Loop from 0 to specified number" b
+for (int $1=0; $1<$2; $1++) {
+	$0
+}
+
+endsnippet
+
 snippet main "Create class with main method" b
 class $1 {
 	public static void main(String ... args) {
