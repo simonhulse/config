@@ -19,13 +19,15 @@ abbr --add vi 'vim'
 # <<< Misc <<<
 
 # >>> Replacing ls with exa >>>
-if command -sq exa
-    abbr --add ls 'exa'
-    abbr --add la 'exa -la'
-    abbr --add lh 'exa -lh'
-    abbr --add tree 'exa --tree'
+if command -sq eza
+    abbr --add ls 'eza --icons'
+    abbr --add ll 'eza -l --icons'
+    abbr --add la 'eza -la --icons'
+    abbr --add lh 'eza -lh --icons'
+    abbr --add tree 'eza --tree --icons'
 else
     abbr --add la 'ls -la'
+    abbr --add ll 'ls -l'
     abbr --add lh 'ls -lh'
 end
 # <<< Replacing ls with exa <<<
