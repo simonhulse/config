@@ -92,3 +92,7 @@ endsnippet
 snippet colcyc "Get access to matploltib color cycler" b
 $1 = mpl.rcParams['axes.prop_cycle'].by_key()['color']
 endsnippet
+
+snippet pvar "Print a variable for debugging" b
+print('$1: {}'.format($1))
+endsnippet
