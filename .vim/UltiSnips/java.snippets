@@ -1,5 +1,5 @@
 # >>> Writing to stdout >>>
-snippet pt "Print line" b
+snippet ptln "Print line" b
 System.out.println($1);$0
 endsnippet
 
@@ -7,13 +7,25 @@ snippet pvar "Print variable" b
 System.out.println(String.format("$1: %s", $1));$0
 endsnippet
 
-snippet apt "Print an array" b
+snippet parr "Print an array" b
 // ** Ensure you have the following line at the top of the file **
 // import java.util.Arrays;
 System.out.println(
 	String.format(
 		"$1:\n%s",
 		Arrays.toString($1)
+	)
+);
+$0
+endsnippet
+
+snippet parrdeep "Print a multidimensional array" b
+// ** Ensure you have the following line at the top of the file **
+// import java.util.Arrays;
+System.out.println(
+	String.format(
+		"$1:\n%s",
+		Arrays.deepToString($1)
 	)
 );
 $0
@@ -47,7 +59,7 @@ endsnippet
 
 # >>> Loops >>>
 snippet fori "Loop from 0 to specified number" b
-for (int ${1:i}=0; $1<$2; $1++) {
+for (int ${1:i} = 0; $1 < $2; $1++) {
 	$0
 }
 endsnippet

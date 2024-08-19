@@ -1,14 +1,56 @@
-snippet pl "println" b
-println!("{}", $1);
-
+# >>> Printing >>>
+snippet ptln "println" b
+println!("{}", $1);$0
 endsnippet
 
-snippet pldb "println debug" b
-println!("{:?}", $1);
-
+snippet ptlndb "println debug" b
+println!("{:?}", $1);$0
 endsnippet
 
-snippet vn "new vec" wA
-Vec::new();
-
+snippet pvar "print variable" b
+println!("$1: {:?}", $1);$0
 endsnippet
+# <<< Printing <<<
+
+# >>> Instantiations >>>
+snippet vec "new Vec" b
+let ${1:vec}: Vec<${2:i32}> = Vec::new();$0
+endsnippet
+# <<< Instantiations <<<
+
+# >>> Imports >>>
+snippet ihs "import HashSet" b
+use std::collections::HashSet;$0
+endsnippet
+
+snippet ihm "import HashMap" b
+use std::collections::HashMap;$0
+endsnippet
+
+snippet ihms "import HashMap and HashSet" b
+use std::collections::{HashMap, HashSet};$0
+endsnippet
+# <<< Imports <<<
+
+# >>> Tests >>>
+snippet testmod "Create test module" b
+#[cfg(test)]
+pub mod tests {
+	use crate::$1::*;
+
+	$0
+}
+endsnippet
+
+snippet test "Create test" b
+	#[test]
+	pub fn $1() {
+		$0
+	}
+}
+endsnippet
+
+snippet eq "Assert Equal" b
+assert_eq!($1, $2);$0
+endsnippet
+# <<< Tests <<<
