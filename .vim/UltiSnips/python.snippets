@@ -1,46 +1,37 @@
 snippet ine "import nmrespy" b
-import nmrespy as ne
-
+import nmrespy as ne$0
 endsnippet
 
 snippet inp "import numpy" b
-import numpy as np
-
+import numpy as np$0
 endsnippet
 
 snippet impl "import matplotlib" b
-import matplotlib as mpl
-
+import matplotlib as mpl$0
 endsnippet
 
 snippet tkagg "Use tkAgg backend" b
-mpl.use("tkAgg")
-
+mpl.use("tkAgg")$0
 endsnippet
 
 snippet usetex "Set TeX text off" b
-mpl.rcParams["text.usetex"] = False
-
+mpl.rcParams["text.usetex"] = False$0
 endsnippet
 
 snippet iplt "import pyplot" b
-import matplotlib.pyplot as plt
-
+import matplotlib.pyplot as plt$0
 endsnippet
 
 snippet ipath "import Path" b
-from pathlib import Path
-
+from pathlib import Path$0
 endsnippet
 
 snippet itf "import tensorflow" b
-import tensorflow as tf
-
+import tensorflow as tf$0
 endsnippet
 
 snippet ipd "import pandas" b
-import pandas as pd
-
+import pandas as pd$0
 endsnippet
 
 snippet plot2d "Setup a quick 2D mpl plot" b
@@ -50,7 +41,7 @@ import matplotlib.pyplot as plt
 fig = plt.figure()
 ax = fig.add_subplot()
 ax.plot($1, $2)
-plt.show()
+plt.show()$0
 endsnippet
 
 snippet plot3d "Setup a quick 3D mpl plot" b
@@ -60,15 +51,15 @@ import matplotlib.pyplot as plt
 fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
 ax.plot_wireframe($1, $2, $3)
-plt.show()
+plt.show()$0
 endsnippet
 
 snippet flipx "Revese x-axis limits" b
-ax.set_xlim(reversed(ax.get_xlim()))
+ax.set_xlim(reversed(ax.get_xlim()))$0
 endsnippet
 
 snippet flipy "Revese y-axis limits" b
-ax.set_ylim(reversed(ax.get_ylim()))
+ax.set_ylim(reversed(ax.get_ylim()))$0
 endsnippet
 
 snippet gridspec "Create figure with gridspec" b
@@ -85,14 +76,14 @@ fig, axs = plt.subplots(
 		"hspace": $9,
 		"height_ratios": $10,
 	},
-	figsize=$11,
-)
+	figsize=($11, $12),
+)$0
 endsnippet
 
 snippet colcyc "Get access to matploltib color cycler" b
-$1 = mpl.rcParams['axes.prop_cycle'].by_key()['color']
+${1:colors} = mpl.rcParams['axes.prop_cycle'].by_key()['color']$0
 endsnippet
 
 snippet pvar "Print a variable for debugging" b
-print('$1: {}'.format($1))
+print('$1: {}'.format($1))$0
 endsnippet

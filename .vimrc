@@ -71,7 +71,7 @@ nnoremap OO O<esc>j
 " Move current line below next line
 nnoremap - ddp
 " Move current line above next line
-nnoremap _ dd2kp
+nnoremap _ ddkP
 " Wrap visually selected text in brackets/quotes
 vnoremap <leader>( <esc>`>i)<esc>`<i(<esc>`><cr>
 vnoremap <leader>) <esc>`>i)<esc>`<i(<esc>`><cr>
@@ -95,8 +95,6 @@ inoremap <Up> <nop>
 inoremap <Down> <nop>
 " Delete contents of line but not line itself
 nnoremap dl ddO<esc>
-" Template for global substitute command
-nnoremap <F4> :%s///g<left><left><left>
 " Jump to previous buffer
 nnoremap # :b#<cr>
 " Paste with initial space
@@ -135,6 +133,9 @@ Plug 'rust-lang/rust.vim'
 
 " .fish plugins
 Plug 'dag/vim-fish'
+
+" .jl plugins
+Plug 'JuliaEditorSupport/julia-vim'
 
 call plug#end()
 " <<< PLUGINS <<<

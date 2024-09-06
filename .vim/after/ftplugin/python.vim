@@ -1,9 +1,3 @@
-"python.vim
-"Simon Hulse
-"simonhulse@protonmail.com
-"Last Edited: Sun 09 Jun 2024 05:26:44 PM EDT
-
-set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
