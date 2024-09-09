@@ -1,7 +1,7 @@
-[user]
+; .gitconfig
 	name = Simon Hulse
 	email = simonhulse@protonmail.com
-[init]
+; Last Edited: Mon 09 Sep 2024 05:01:09 PM EDT
 	defaultBranch = main
 [core]
     editor = vim

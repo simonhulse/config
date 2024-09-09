@@ -1,7 +1,8 @@
-".vimrc
-"Simon Hulse
-"simonhulse@protonmail.com
-"Last Edited: Mon 09 Sep 2024 10:03:47 PDT
+" .vimrc
+" Simon Hulse
+" simonhulse@protonmail.com
+" Last Edited: Mon 09 Sep 2024 04:36:50 PM EDT
+
 
 " >>> UNDO FUNCTIONALITY >>>
 " Setup undo to work between vim sessions

@@ -1,4 +1,10 @@
 #!/usr/bin/csh
+
+# utils/install-nmrpipe
+# Simon Hulse
+# simonhulse@protonmail.com
+# Last Edited: Mon 09 Sep 2024 05:00:19 PM EDT
+
 cd ~/progs
 
 if ( -d nmrpipe ) then

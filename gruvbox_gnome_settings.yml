@@ -1,3 +1,8 @@
+# gruvbox_gnome_settings.yml
+# Simon Hulse
+# simonhulse@protonmail.com
+# Last Edited: Mon 09 Sep 2024 05:00:34 PM EDT
+
 [legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
 audible-bell=false
 background-color='#282828'
