@@ -1,7 +1,7 @@
 ".vimrc
 "Simon Hulse
 "simonhulse@protonmail.com
-"Last Edited: Tue 02 Jul 2024 14:03:50 EDT
+"Last Edited: Mon 09 Sep 2024 08:30:43 PDT
 
 " >>> UNDO FUNCTIONALITY >>>
 " Setup undo to work between vim sessions
@@ -185,6 +185,7 @@ let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='hard'
 let g:gruvbox_transparent_bg=1
 colorscheme gruvbox
+hi Normal guibg=NONE ctermbg=NONE
 
 if (empty($TMUX))
     if (has("nvim"))
