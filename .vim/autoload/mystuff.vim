@@ -1,7 +1,8 @@
-"mystuff.vim
-"Simon Hulse
-"simonhulse@protonmail.com
-"Last Edited: Mon 09 Sep 2024 09:21:28 PDT
+" .vim/autoload/mystuff.vim
+" Simon Hulse
+" simonhulse@protonmail.com
+" Last Edited: Mon 09 Sep 2024 04:32:13 PM EDT
+
 
 function mystuff#AddStamp()
     if &filetype != ''
@@ -19,7 +20,7 @@ function mystuff#AddStamp()
                 call setline(3, printf(cstring, 'simonhulse@protonmail.com'))
                 call setline(5, '')
             endif
-            call setline(1, printf(cstring, expand('%:t')))
+            call setline(1, printf(cstring, expand('%:.')))
             call setline(4, printf(cstring, 'Last Edited: ' . strftime('%c')))
             call cursor(current_line, current_col)
         endif

@@ -1,3 +1,8 @@
+" .vim/after/ftplugin/python.vim
+" Simon Hulse
+" simonhulse@protonmail.com
+" Last Edited: Mon 09 Sep 2024 04:32:38 PM EDT
+
 set softtabstop=4
 set shiftwidth=4
 set expandtab

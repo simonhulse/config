@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# .profile
+# Simon Hulse
+# simonhulse@protonmail.com
+# Last Edited: Mon 09 Sep 2024 05:03:09 PM EDT
+
 umask 022
 
 # Hodge-podge of various paths that might exist and contain executables
