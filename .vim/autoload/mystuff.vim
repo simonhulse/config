@@ -5,7 +5,7 @@
 
 function mystuff#AddStamp()
     if &filetype != ''
-        if (g:add_stamp == 1)
+        if (g:add_stamp == 1 && &commentstring != '')
             let current_line = line('.')
             let current_col = col('.')
             let cstring = substitute(&commentstring, '%\(s\)\@!', '%%', '')
