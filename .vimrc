@@ -1,7 +1,7 @@
 ".vimrc
 "Simon Hulse
 "simonhulse@protonmail.com
-"Last Edited: Mon 09 Sep 2024 08:30:43 PDT
+"Last Edited: Mon 09 Sep 2024 08:54:56 PDT
 
 " >>> UNDO FUNCTIONALITY >>>
 " Setup undo to work between vim sessions
@@ -158,10 +158,11 @@ function AddStamp()
         if (g:add_stamp == 1)
             let current_line = line('.')
             let current_col = col('.')
-            let cstring = substitute(&commentstring, '\%\(s\)\@!', '\%', '')
+            let cstring = substitute(&commentstring, '%\(s\)\@!', '%%', '')
             :normal gg
             if stridx(getline(2), 'Simon Hulse') == -1
                 let current_line = current_line + 5
+
                 :normal O<esc>dl
                 :normal 4.
                 call setline(2, printf(cstring, 'Simon Hulse'))
