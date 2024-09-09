@@ -1,7 +1,7 @@
 ".vimrc
 "Simon Hulse
 "simonhulse@protonmail.com
-"Last Edited: Mon 09 Sep 2024 08:54:56 PDT
+"Last Edited: Mon 09 Sep 2024 10:03:47 PDT
 
 " >>> UNDO FUNCTIONALITY >>>
 " Setup undo to work between vim sessions
@@ -153,31 +153,8 @@ autocmd BufNewFile * :write         " Save a file as soon as it is created
 " <<< AUTO-COMMANDS <<<
 
 " >>> ADD STAMP UPON SAVE >>>
-function AddStamp()
-    if &filetype != ''
-        if (g:add_stamp == 1)
-            let current_line = line('.')
-            let current_col = col('.')
-            let cstring = substitute(&commentstring, '%\(s\)\@!', '%%', '')
-            :normal gg
-            if stridx(getline(2), 'Simon Hulse') == -1
-                let current_line = current_line + 5
-
-                :normal O<esc>dl
-                :normal 4.
-                call setline(2, printf(cstring, 'Simon Hulse'))
-                call setline(3, printf(cstring, 'simonhulse@protonmail.com'))
-                call setline(5, '')
-            endif
-            call setline(1, printf(cstring, expand('%:t')))
-            call setline(4, printf(cstring, 'Last Edited: ' . strftime('%c')))
-            call cursor(current_line, current_col)
-        endif
-    endif
-endfunction
-
 let g:add_stamp = 1
-autocmd BufWritePre * :call AddStamp()
+autocmd BufWritePre * :call mystuff#AddStamp()
 " <<< ADD STAMP UPON SAVE <<<
 
 " >>> GRUVBOX CONFIGURATION >>>
@@ -211,3 +188,6 @@ let g:localvimrc_ask=0
 let g:localvimrc_reverse=1
 let g:localvimrc_sandbox=0
 " <<< LOCALVIMRC CONFIGURATION <<<
+
+" vim defaults to filetype being plaintex for .tex files. Override this
+let g:tex_flavor = 'latex'
