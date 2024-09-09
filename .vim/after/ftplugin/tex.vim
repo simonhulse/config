@@ -1,7 +1,13 @@
-" Use concealment. Especially useful for maths. You'll need a good unicode font for this (JuliaMono works well)
+"tex.vim
+"Simon Hulse
+"simonhulse@protonmail.com
+"Last Edited: Mon 09 Sep 2024 10:03:23 PDT
+
 set conceallevel=2
+nnoremap <localleader>c :let &conceallevel = -1 * &conceallevel + 2<cr>
+
 set iskeyword+=:
-let g:tex_flavor='latex'
+
 let g:vimtex_quickfix_mode=2
 let g:vimtex_view_method='zathura'
 let g:vimtex_syntax_custom_cmds = [
@@ -14,7 +20,6 @@ setlocal spell spelllang=en_gb
 hi clear SpellBad
 hi SpellBad cterm=underline
 
-nnoremap <localleader>c :call ftplugin#tex#ToggleConceal()<cr>
 
 " Check for the presence of the file vimspell.utf-8.add in file dir,
 " and set this as the spellfile if found.
