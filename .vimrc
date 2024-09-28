@@ -1,7 +1,7 @@
 " .vimrc
 " Simon Hulse
 " simonhulse@protonmail.com
-" Last Edited: Mon 09 Sep 2024 04:36:50 PM EDT
+" Last Edited: Sat 28 Sep 2024 07:41:44 PM EDT
 
 
 " >>> UNDO FUNCTIONALITY >>>
@@ -102,6 +102,8 @@ nnoremap # :b#<cr>
 nnoremap <leader>p a<space><esc>p
 " Break long line up to the set text wrapping length
 nnoremap <leader>b 0v$gq
+" Quick access to ls
+nnoremap <leader>l :AsyncRun ls
 " <<< MAPPINGS <<<
 
 " >>> PLUGINS >>>

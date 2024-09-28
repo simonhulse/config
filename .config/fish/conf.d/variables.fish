@@ -1,3 +1,8 @@
+# .config/fish/conf.d/variables.fish
+# Simon Hulse
+# simonhulse@protonmail.com
+# Last Edited: Sat 28 Sep 2024 07:50:12 PM EDT
+
 # >>>> VARIABLES >>>>
 
 set exxact 'simonhulse@10.16.7.230'
@@ -14,9 +19,16 @@ abbr --add c 'clear'
 abbr --add cs 'clear; ls -lh'
 abbr --add o 'xdg-open'
 abbr --add h 'history'
-abbr --add v 'vim'
-abbr --add vi 'vim'
-# <<< Misc <<<
+
+# >>> Vim: use vim-gtk3 if it exists, for clipboard support >>>
+if command -sq vim.gtk3
+    abbr --add v 'vim.gtk3'
+    abbr --add vi 'vim.gtk3'
+else
+    abbr --add v 'vim'
+    abbr --add vi 'vim'
+end
+# <<< Vim <<<
 
 # >>> Replacing ls with exa >>>
 if command -sq eza
@@ -46,7 +58,7 @@ abbr --add gs 'git status'
 abbr --add gco 'git commit'
 abbr --add gcl 'git clone'
 abbr --add gl 'git log --oneline --decorate --graph --all'
-abbr --add groot 'cd $(git rev-parse --show-toplevel)'
+abbr --add groot 'cd (git rev-parse --show-toplevel)'
 # <<< Git <<<
 
 # >>> Python >>>

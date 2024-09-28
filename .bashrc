@@ -1,7 +1,7 @@
 # .bashrc
 # Simon Hulse
 # simonhulse@protonmail.com
-# Last Edited: Mon 09 Sep 2024 05:03:40 PM EDT
+# Last Edited: Wed 25 Sep 2024 11:07:27 PM EDT
 
 # Source Ubuntu's default .bashrc
 # I'm mainly keeping this here as I don't really know how
@@ -54,7 +54,7 @@ alias gcom="git commit -m"
 alias gcoma="git commit --amend"
 alias gclo="git clone"
 alias gl="git log --oneline --decorate --graph --all"
-alias gtok="cat ~/.ghtoken | xclip -selection clipboard"
+alias gtok="cat ~/.ghtoken | xclip -selection clipboard &> /dev/null"
 alias groot='cd $(git rev-parse --show-toplevel)'
 
 # Volume control
