@@ -1,7 +1,9 @@
 " .vim/after/ftplugin/tex.vim
 " Simon Hulse
 " simonhulse@protonmail.com
-" Last Edited: Mon 09 Sep 2024 04:33:19 PM EDT
+" Last Edited: Fri 27 Sep 2024 03:41:08 PM EDT
+
+setlocal commentstring=%\ %s
 
 set conceallevel=2
 nnoremap <localleader>c :let &conceallevel = -1 * &conceallevel + 2<cr>

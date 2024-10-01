@@ -1,7 +1,7 @@
 # .config/fish/conf.d/variables.fish
 # Simon Hulse
 # simonhulse@protonmail.com
-# Last Edited: Sat 28 Sep 2024 07:50:12 PM EDT
+# Last Edited: Tue 01 Oct 2024 11:31:50 AM EDT
 
 # >>>> VARIABLES >>>>
 
@@ -32,11 +32,11 @@ end
 
 # >>> Replacing ls with exa >>>
 if command -sq eza
-    abbr --add ls 'eza --icons'
-    abbr --add ll 'eza -l --icons'
-    abbr --add la 'eza -la --icons'
-    abbr --add lh 'eza -lh --icons'
-    abbr --add tree 'eza --tree --icons'
+    abbr --add ls 'eza --icons=auto'
+    abbr --add ll 'eza -l --icons=auto --git'
+    abbr --add la 'eza -la --icons=auto --git'
+    abbr --add lh 'eza -lh --icons=auto --git'
+    abbr --add tree 'eza --tree --icons=auto'
 else
     abbr --add la 'ls -la'
     abbr --add ll 'ls -l'
