@@ -1,0 +1,14 @@
+# /home/simonhulse/.config/eza/theme.yml
+# Simon Hulse
+# simonhulse@protonmail.com
+# Last Edited: Thu 26 Sep 2024 12:20:56 PM EDT
+
+filenames:
+  matplotlibrc: {icon: {glyph: 󰺒}}
+  run: {icon: {glyph:  }}
+
+extensions:
+  m: {icon: {glyph: 󰘨}}
+  pdb: {icon: {glyph: }}
+  kdbx: {icon: {glyph: }}
+  pkl: {icon: {glyph: }}
