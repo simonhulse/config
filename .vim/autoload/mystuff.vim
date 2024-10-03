@@ -1,7 +1,7 @@
-" .vim/autoload/mystuff.vim
+" /home/simonhulse/.vim/autoload/mystuff.vim
 " Simon Hulse
 " simonhulse@protonmail.com
-" Last Edited: Mon 09 Sep 2024 04:32:13 PM EDT
+" Last Edited: Thu 26 Sep 2024 10:49:04 AM EDT
 
 
 function mystuff#AddStamp()
@@ -10,18 +10,25 @@ function mystuff#AddStamp()
             let current_line = line('.')
             let current_col = col('.')
             let cstring = substitute(&commentstring, '%\(s\)\@!', '%%', '')
-            :normal gg
-            if stridx(getline(2), 'Simon Hulse') == -1
+
+            let firstline = 1
+            " Deal with shebang
+            if getline(1) =~ '^#!'
+                let firstline = 3
+            end
+
+            call cursor(firstline, 1)
+            if stridx(getline(firstline + 1), 'Simon Hulse') == -1
                 let current_line = current_line + 5
 
                 :normal O<esc>dl
                 :normal 4.
-                call setline(2, printf(cstring, 'Simon Hulse'))
-                call setline(3, printf(cstring, 'simonhulse@protonmail.com'))
-                call setline(5, '')
+                call setline(firstline + 1, printf(cstring, 'Simon Hulse'))
+                call setline(firstline + 2, printf(cstring, 'simonhulse@protonmail.com'))
+                call setline(firstline + 4, '')
             endif
-            call setline(1, printf(cstring, expand('%:.')))
-            call setline(4, printf(cstring, 'Last Edited: ' . strftime('%c')))
+            call setline(firstline, printf(cstring, expand('%:.')))
+            call setline(firstline + 3, printf(cstring, 'Last Edited: ' . strftime('%c')))
             call cursor(current_line, current_col)
         endif
     endif
