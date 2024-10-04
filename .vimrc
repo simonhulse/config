@@ -1,7 +1,7 @@
-" .vimrc
+" /home/simon/.vimrc
 " Simon Hulse
 " simonhulse@protonmail.com
-" Last Edited: Sat 28 Sep 2024 07:53:36 PM EDT
+" Last Edited: Thu 03 Oct 2024 09:13:32 PM EDT
 
 
 " >>> UNDO FUNCTIONALITY >>>
@@ -102,8 +102,6 @@ nnoremap # :b#<cr>
 nnoremap <leader>p a<space><esc>p
 " Break long line up to the set text wrapping length
 nnoremap <leader>b 0v$gq
-" Quick access to AsyncRun
-nnoremap <leader>r :AsyncRun
 " Quick access to ls
 nnoremap <leader>l :AsyncRun ls
 " <<< MAPPINGS <<<
@@ -193,6 +191,10 @@ let g:localvimrc_ask=0
 let g:localvimrc_reverse=1
 let g:localvimrc_sandbox=0
 " <<< LOCALVIMRC CONFIGURATION <<<
+
+" >>> ALE CONFIGURATION >>>
+let g:ale_echo_msg_format = '`%linter%`: %s'
+" <<< ALE CONFIGURATION <<<
 
 " vim defaults to filetype being plaintex for .tex files. Override this
 let g:tex_flavor = 'latex'
