@@ -1,12 +1,12 @@
 # .config/fish/conf.d/variables.fish
 # Simon Hulse
 # simonhulse@protonmail.com
-# Last Edited: Wed 02 Oct 2024 09:04:12 PM EDT
+# Last Edited: Mon 07 Oct 2024 11:14:03 AM EDT
 
 # >>>> VARIABLES >>>>
 
-set daisy 'simonhulse@10.16.7.230'
-set orin 'simonhulse@10.20.0.43'
+set -x DAISY 'simonhulse@10.16.7.230'
+set -x ORIN 'simonhulse@10.20.0.43'
 
 # <<<< VARIABLES <<<<
 
@@ -67,8 +67,8 @@ abbr --add pup 'pip install --upgrade pip'
 # <<< Python <<<
 
 # >>> Network >>>
-abbr --add daisy "sshpass -f ~/.asrcpwd ssh -Y $exxact"
-abbr --add orin "sshpass -f ~/.asrcpwd ssh -Y $orin"
+abbr --add daisy "sshpass -f ~/.asrcpwd ssh -Y $DAISY"
+abbr --add orin "sshpass -f ~/.asrcpwd ssh -Y $ORIN"
 # <<< Network <<<
 
 # <<<< ABBREVIATIONS <<<<
