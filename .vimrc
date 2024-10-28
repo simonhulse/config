@@ -151,14 +151,11 @@ nnoremap <leader>ak :ALEPrevious<cr>
 
 " >>> AUTO-COMMANDS >>>
 " Write with W
-autocmd BufWritePre * :%s/\s\+$//e  " Remove trailing whitespace upon save
-autocmd BufNewFile * :write         " Save a file as soon as it is created
-" <<< AUTO-COMMANDS <<<
+autocmd BufWritePre * :%s/\s\+$//e             " Remove trailing whitespace upon save
 
-" >>> ADD STAMP UPON SAVE >>>
 let g:add_stamp = 1
-autocmd BufWritePre * :call mystuff#AddStamp()
-" <<< ADD STAMP UPON SAVE <<<
+autocmd BufWritePre * :call mystuff#AddStamp() " Add stamp upon save
+" <<< AUTO-COMMANDS <<<
 
 " >>> GRUVBOX CONFIGURATION >>>
 set background=dark
