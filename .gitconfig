@@ -1,8 +1,13 @@
-; .gitconfig
-	name = Simon Hulse
-	email = simonhulse@protonmail.com
-; Last Edited: Mon 09 Sep 2024 05:01:09 PM EDT
-	defaultBranch = main
+; /home/simonhulse/.gitconfig
+; Simon Hulse
+; simonhulse@protonmail.com
+; Last Edited: Mon 23 Sep 2024 10:48:24 AM EDT
+
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
+[user]
+	name = Simon Hulse
+	email = simonhulse@protonmail.com
+    username = simonhulse
+	defaultBranch = main
