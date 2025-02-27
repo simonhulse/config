@@ -1,0 +1,17 @@
+# .config/alacritty/alacritty.toml
+# Simon Hulse
+# simonhulse@protonmail.com
+# Last Edited: Thu 27 Feb 2025 02:40:09 PM EST
+
+[general]
+import = ["~/.config/alacritty/gruvbox_dark.toml"]
+
+[font]
+normal = { family = "Hasklug Nerd Font", style = "Regular" }
+size = 14.00
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+startup_mode = "Maximized"
