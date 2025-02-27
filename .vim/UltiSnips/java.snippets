@@ -1,7 +1,7 @@
-# .vim/UltiSnips/java.snippets
+# /home/simonhulse/.vim/UltiSnips/java.snippets
 # Simon Hulse
 # simonhulse@protonmail.com
-# Last Edited: Mon 09 Sep 2024 04:36:14 PM EDT
+# Last Edited: Tue 25 Feb 2025 01:19:40 PM EST
 
 # >>> Writing to stdout >>>
 snippet ptln "Print line" b
@@ -9,25 +9,15 @@ System.out.println("$1");$0
 endsnippet
 
 snippet pvar "Print variable" b
-System.out.println(String.format("$1: %s", $1));$0
+System.out.printf("$1: %s%n", $1);$0
 endsnippet
 
 snippet parr "Print an array" b
-System.out.println(
-	String.format(
-		"$1:\n%s",
-		Arrays.toString($1)
-	)
-);$0
+System.out.printf("$1:%n%s%n", Arrays.toString($1));$0
 endsnippet
 
 snippet parrdeep "Print a multidimensional array" b
-System.out.println(
-	String.format(
-		"$1:\n%s",
-		Arrays.deepToString($1)
-	)
-);$0
+System.out.printf("$1:%n%s%n", Arrays.deepToString($1));$0
 endsnippet
 # <<< Writing to stdout <<<
 
