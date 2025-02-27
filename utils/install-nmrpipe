@@ -3,7 +3,9 @@
 # utils/install-nmrpipe
 # Simon Hulse
 # simonhulse@protonmail.com
-# Last Edited: Mon 09 Sep 2024 05:00:19 PM EDT
+# Last Edited: Thu 27 Feb 2025 02:31:12 PM EST
+
+set init_pwd = `pwd`
 
 cd ~/progs
 
@@ -14,17 +16,18 @@ endif
 mkdir nmrpipe
 cd nmrpipe
 
-cp ~/nmrpipe_files/install.com .
-cp ~/nmrpipe_files/binval.com .
-cp ~/nmrpipe_files/NMRPipeX.tZ .
-cp ~/nmrpipe_files/s.tZ .
-cp ~/nmrpipe_files/plugin.smile.tZ .
+wget https://www.ibbr.umd.edu/nmrpipe/install.com
+wget https://www.ibbr.umd.edu/nmrpipe/binval.com
+wget https://www.ibbr.umd.edu/nmrpipe/NMRPipeX.tZ
+wget https://www.ibbr.umd.edu/nmrpipe/s.tZ
+wget https://www.ibbr.umd.edu/nmrpipe/dyn.tZ
+
+wget https://www.ibbr.umd.edu/nmrpipe/talos_nmrPipe.tZ
+wget https://www.ibbr.umd.edu/nmrpipe/plugin.smile.tZ
 
 chmod a+r *.tZ *.Z *.tar
 chmod a+rx *.com
 
 ./install.com
 
-rm ~/.cshrc
-
-cd
+cd $init_pwd
