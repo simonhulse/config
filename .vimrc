@@ -1,7 +1,7 @@
 " /home/simon/.vimrc
 " Simon Hulse
 " simonhulse@protonmail.com
-" Last Edited: Thu 03 Oct 2024 09:13:32 PM EDT
+" Last Edited: Fri 07 Mar 2025 12:30:12 PM EST
 
 
 " >>> UNDO FUNCTIONALITY >>>
@@ -54,6 +54,8 @@ nnoremap Q <nop>
 " Save file with leader instead of colon
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
+" Delete all buffers except the current one
+nnoremap <leader>bd :%bd\|e#
 " Enter command mode with ; rather than :
 nnoremap ; :
 vnoremap ; :
