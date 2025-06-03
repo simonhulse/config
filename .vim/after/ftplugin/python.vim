@@ -1,7 +1,7 @@
-" .vim/after/ftplugin/python.vim
+" /home/simonhulse/.vim/after/ftplugin/python.vim
 " Simon Hulse
 " simonhulse@protonmail.com
-" Last Edited: Mon 09 Sep 2024 04:32:38 PM EDT
+" Last Edited: Tue 18 Mar 2025 12:59:02 PM EDT
 
 set softtabstop=4
 set shiftwidth=4
@@ -10,8 +10,8 @@ set autoindent
 set fileformat=unix
 set colorcolumn=88
 
-let python_highlight_all=1
-let b:ale_fixers = []
+let python_highlight_all = 1
+let g:ale_python_auto_uv = 1
+let b:ale_fixers = ['black']
 let b:ale_fix_on_save = 1
-let b:ale_linters = ['flake8']
-let b:ale_python_flake8_options = '--ignore=E203,E731,E741,W504,E501 --per-file-ignores=__init__.py:E402,F401'
+let b:ale_linters = ['mypy', 'ruff']
