@@ -1,8 +1,7 @@
 " /home/simon/.vimrc
 " Simon Hulse
 " simonhulse@protonmail.com
-" Last Edited: Fri 07 Mar 2025 12:30:12 PM EST
-
+" Last Edited: Thu 22 May 2025 01:05:27 PM EDT
 
 " >>> UNDO FUNCTIONALITY >>>
 " Setup undo to work between vim sessions
@@ -141,6 +140,15 @@ Plug 'dag/vim-fish'
 
 " .jl plugins
 Plug 'JuliaEditorSupport/julia-vim'
+
+" Postresql plugins
+Plug 'lifepillar/pgsql.vim'
+
+" Jupyter plugins
+Plug 'jupyter-vim/jupyter-vim'
+
+"Jinja plugins
+Plug 'lepture/vim-jinja'
 
 call plug#end()
 " <<< PLUGINS <<<
