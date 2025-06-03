@@ -1,7 +1,7 @@
 # .config/fish/conf.d/variables.fish
 # Simon Hulse
 # simonhulse@protonmail.com
-# Last Edited: Mon 07 Oct 2024 11:14:03 AM EDT
+# Last Edited: Tue 03 Jun 2025 12:33:37 PM EDT
 
 # >>>> VARIABLES >>>>
 
@@ -21,7 +21,10 @@ abbr --add o 'xdg-open'
 abbr --add h 'history'
 
 # >>> Vim: use vim-gtk3 if it exists, for clipboard support >>>
-if command -sq vim.gtk3
+if command -sq nvim
+    abbr --add v 'nvim'
+    abbr --add vi 'nvim'
+else if command -sq vim.gtk3
     abbr --add v 'vim.gtk3'
     abbr --add vi 'vim.gtk3'
 else
