@@ -1,0 +1,18 @@
+# .vim/UltiSnips/julia.snippets
+# Simon Hulse
+# simonhulse@protonmail.com
+# Last Edited: Mon 09 Sep 2024 10:49:02 PM EDT
+
+snippet ptstr "Print string" b
+println("$1")$0
+endsnippet
+
+snippet pt "Print" b
+println($1)$0
+endsnippet
+
+snippet ptvar "Print variable" b
+# Ensure you include this line:
+# using Printf
+println(@sprintf("$1: %s", $1))$0
+endsnippet
