@@ -54,11 +54,9 @@ theme_figures/}
 \setbeamertemplate{footline}
 {
    \begin{picture}(0,0)
-       \put(0, 5){
-           \makebox(\strip@pt\paperwidth,0){
-               {\color{cunyblue}\bfseries\insertshortdate\hfill\insertshorttitle\hfill Slide \insertframenumber}
-           }
-       }
+       \put(4, 5){{\color{cunyblue}\bfseries\insertshortdate}}
+       \put(\strip@pt\dimexpr\paperwidth/2\relax, 5){\makebox(0,0){{\color{cunyblue}\bfseries\insertshorttitle}}}
+       \put(\strip@pt\dimexpr\paperwidth-4pt\relax, 5){\makebox(0,0)[r]{{\color{cunyblue}\bfseries Slide \insertframenumber}}}
    \end{picture}
 }
 
