@@ -8,7 +8,7 @@ Clone the repo and run the install script:
 
 ```bash
 git clone https://github.com/simonhulse/config.git ~/Documents/config
-~/Documents/config/INSTALL
+~/Documents/config/install.sh
 ```
 
 This installs stow (if not already present), creates symlinks for all config files into `$HOME`, and if running GNOME, loads the Gruvbox terminal profile via dconf.
@@ -27,7 +27,7 @@ Stow is safe to re-run; it skips symlinks that already exist.
 
 | Situation | Action |
 |---|---|
-| First time on a new machine | Run `INSTALL` |
+| First time on a new machine | Run `install.sh` |
 | Pull changes to existing files | Nothing, symlinks are live |
 | Pull and new files were added | Re-run `stow` |
 | Edit a file locally | Nothing, changes are live in the repo |
