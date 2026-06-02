@@ -16,6 +16,27 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:Fira Code 10
 
+# Gruvbox colors
+set $gb_bg      #282828
+set $gb_bg1     #3c3836
+set $gb_bg2     #504945
+set $gb_fg      #ebdbb2
+set $gb_gray    #a89984
+set $gb_yellow  #fabd2f
+set $gb_red     #fb4934
+set $gb_blue    #83a598
+set $gb_green   #b8bb26
+
+default_border pixel 1
+
+# class                 border      background  text        indicator   child_border
+client.focused          $gb_green   $gb_bg1     $gb_fg      $gb_blue    $gb_green
+client.focused_inactive $gb_bg1     $gb_bg1     $gb_gray    $gb_bg1     $gb_bg1
+client.unfocused        $gb_bg      $gb_bg      $gb_gray    $gb_bg      $gb_bg
+client.urgent           $gb_red     $gb_red     $gb_bg      $gb_red     $gb_red
+client.placeholder      $gb_bg      $gb_bg      $gb_fg      $gb_bg      $gb_bg
+client.background       $gb_bg
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -34,6 +55,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+exec_always --no-startup-id setxkbmap us,gb -option grp:alt_shift_toggle
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -190,4 +212,4 @@ bindsym $mod+z exec zathura
 # Load pulse audio GUI
 bindsym $mod+p exec pavucontrol
 
-exec --no-startup-id polybar main
+exec_always --no-startup-id ~/.config/polybar/launch.sh
