@@ -4,6 +4,6 @@
 # Last Edited: Wed 05 Mar 2025 03:36:52 PM EST
 
 function largefont
-    sed -i 's/size = [0-9]\+\.[0-9]\+/size = 16.0/' ~/.config/alacritty/alacritty.toml
+    sed -i 's/font_size [0-9]\+\.[0-9]\+/font_size 16.0/' ~/.config/kitty/kitty.conf
 end
 

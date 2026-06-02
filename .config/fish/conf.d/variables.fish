@@ -47,13 +47,13 @@ else
 end
 # <<< Replacing ls with exa <<<
 
-# >>> Naviagtion >>>
+# >>> Navigation >>>
 abbr --add .. 'cd ..'
 abbr --add ... 'cd ../..'
 abbr --add .... 'cd ../../..'
 abbr --add ..... 'cd ../../../..'
 abbr --add root 'cd /'
-# <<< Naviagtion <<<
+# <<< Navigation <<<
 
 # >>> Git >>>
 abbr --add gi 'git init'
