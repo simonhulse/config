@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    echo "$ID"
+elif command -v lsb_release >/dev/null 2>&1; then
+    lsb_release -si | tr '[:upper:]' '[:lower:]'
+else
+    uname -s | tr '[:upper:]' '[:lower:]'
+fi
