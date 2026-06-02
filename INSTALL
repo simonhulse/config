@@ -9,8 +9,3 @@ if ! command -v stow &>/dev/null; then
   sudo apt install stow
 fi
 stow --target="$HOME" --dir="$REPO" .
-
-### GNOME terminal profile (dconf can't be managed as a file)
-if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
-  dconf load /org/gnome/terminal/ < "$REPO/gruvbox_dark.dconf"
-fi
