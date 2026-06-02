@@ -3,3 +3,5 @@ set recolor-darkcolor "#EBDBB2"
 set recolor-lightcolor "#1D2021"
 set default-bg "#1D2021"
 set adjust-open "best-fit"
+
+map <C-r> recolor
