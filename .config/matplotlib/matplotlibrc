@@ -1,40 +1,49 @@
 # matplotlibrc
-# ------------
-#
-# BACKEND
+
+## BACKENDS
 backend: pgf
-#
-# SAVING FIGURES
-savefig.dpi: 600
-savefig.transparent: True
-figure.dpi: 600
 
-# AXES
-axes.linewidth: 1.2
-axes.xmargin: .03
-axes.ymargin: .03
-
-# LINES
+## LINES
 lines.linewidth: 1.0
 lines.markersize: 4
 
-# FONT (XeLaTeX) - Garamond and Garamond math
+## PATCHES
+patch.linewidth: 1.2
+
+## FONT
 font.family: serif
+
+## TEXT
 text.usetex: True
+
+## LaTeX
 pgf.rcfonts: False
-pgf.preamble: \usepackage{amsmath} \usepackage{xcolor} \usepackage{nicefrac} \usepackage{physics} \usepackage{siunitx} \usepackage{fontspec} \usepackage[math-style=ISO,bold-style=ISO]{unicode-math} \setmainfont{EBGaramond}[Path=/home/simon/.fonts/EBGaramond/,Extension=.otf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic] \setmathfont{Garamond-Math.otf}[Path=/home/simon/.fonts/,StylisticSet={5}] \setmonofont{JuliaMono}[Scale=MatchLowercase,Path=/home/simon/.fonts/JuliaMono/,Extension=.ttf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-RegularItalic,BoldItalicFont=*-BoldFont] \definecolor{col1}{HTML}{E42A00} \definecolor{col2}{HTML}{0051FE} \definecolor{col3}{HTML}{E6AC00} \definecolor{col4}{HTML}{A01FDF} \definecolor{col5}{HTML}{28A428} \definecolor{col6}{HTML}{FF7B00}
-pgf.texsystem: xelatex
+pgf.texsystem: lualatex
+pgf.preamble: \usepackage{amsmath} \usepackage{xcolor} \usepackage{nicefrac} \usepackage{physics} \usepackage{siunitx} \definecolor{col1}{HTML}{E69F00} \definecolor{col2}{HTML}{56B4E9} \definecolor{col3}{HTML}{009E73} \definecolor{col4}{HTML}{F0E442} \definecolor{col5}{HTML}{0072B2} \definecolor{col6}{HTML}{D55E00} \definecolor{col7}{HTML}{CC79A7}
 
-# COLOR
-axes.prop_cycle: cycler('color', ['E42A00', '0051FE', 'E6AC00', 'A01FDF', '28A428',  'FF7B00'])
+## AXES
+axes.linewidth: 1.2
+axes.xmargin: .03
+axes.ymargin: .03
+axes.prop_cycle: cycler('color', ['#E69F00', '#56B4E9', '#009E73', '#F0E442', '#0072B2', '#D55E00', '#CC79A7'])
+axes.formatter.use_mathtext: True
 
-# TICKS
+## TICKS
 xtick.labelsize: small
 ytick.labelsize: small
 
-# LEGEND
-legend.edgecolor: k
-legend.facecolor: ffffff
+## LEGEND
+legend.fontsize: small
+legend.facecolor: white
+legend.framealpha: 1.0
+legend.edgecolor: black
 
-# PATCHES
-patch.linewidth: 1.2 # mainly to increase legend linewidth
+## FIGURE
+figure.dpi: 150
+
+## IMAGES
+image.cmap: cividis
+
+## SAVING FIGURES
+savefig.dpi: 600
+savefig.transparent: True
