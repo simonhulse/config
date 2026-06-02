@@ -1,0 +1,15 @@
+snippet ptln "print line" b
+std::cout << "$1" << std::endl;$0
+endsnippet
+
+snippet pvar "print variable" b
+std::cout << "$1: " << $1 << std::endl;$0
+endsnippet
+
+snippet piter "print iterable" b
+std::cout << "$1:" << std::endl;
+for (auto& value : $1) {
+	std::cout << value << ", ";
+}
+std::cout << "END" << std::endl;$0
+endsnippet

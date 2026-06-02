@@ -1,7 +1,3 @@
-snippet ine "import nmrespy" b
-import nmrespy as ne$0
-endsnippet
-
 snippet inp "import numpy" b
 import numpy as np$0
 endsnippet
@@ -14,7 +10,7 @@ snippet tkagg "Use tkAgg backend" b
 mpl.use("tkAgg")$0
 endsnippet
 
-snippet usetex "Set TeX text off" b
+snippet usetex "Disable TeX text rendering" b
 mpl.rcParams["text.usetex"] = False$0
 endsnippet
 
@@ -34,56 +30,20 @@ snippet ipd "import pandas" b
 import pandas as pd$0
 endsnippet
 
-snippet plot2d "Setup a quick 2D mpl plot" b
-import matplotlib as mpl
-mpl.use("tkAgg")
-import matplotlib.pyplot as plt
-fig = plt.figure()
-ax = fig.add_subplot()
-ax.plot($1, $2)
-plt.show()$0
+
+snippet flipx "Reverse x-axis limits" b
+ax.set_xlim(ax.get_xlim()[::-1])$0
 endsnippet
 
-snippet plot3d "Setup a quick 3D mpl plot" b
-import matplotlib as mpl
-mpl.use("tkAgg")
-import matplotlib.pyplot as plt
-fig = plt.figure()
-ax = fig.add_subplot(projection='3d')
-ax.plot_wireframe($1, $2, $3)
-plt.show()$0
+snippet flipy "Reverse y-axis limits" b
+ax.set_ylim(ax.get_ylim()[::-1])$0
 endsnippet
 
-snippet flipx "Revese x-axis limits" b
-ax.set_xlim(reversed(ax.get_xlim()))$0
-endsnippet
 
-snippet flipy "Revese y-axis limits" b
-ax.set_ylim(reversed(ax.get_ylim()))$0
-endsnippet
-
-snippet gridspec "Create figure with gridspec" b
-fig, axs = plt.subplots(
-	nrows=$1,
-	ncols=$2,
-	gridspec_kw={
-		"left": $3,
-		"right": $4,
-		"bottom": $5,
-		"top": $6,
-		"wspace": $7,
-		"width_ratios": $8,
-		"hspace": $9,
-		"height_ratios": $10,
-	},
-	figsize=($11, $12),
-)$0
-endsnippet
-
-snippet colcyc "Get access to matploltib color cycler" b
+snippet colcyc "Get access to matplotlib color cycler" b
 ${1:colors} = mpl.rcParams['axes.prop_cycle'].by_key()['color']$0
 endsnippet
 
 snippet pvar "Print a variable for debugging" b
-print('$1: {}'.format($1))$0
+print(f'$1: {$1}')$0
 endsnippet
