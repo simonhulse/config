@@ -62,7 +62,6 @@ if [[ -x "$(command -v amixer)" ]] ; then
     alias volup="amixer sset Master 10%+"
     alias voldown="amixer sset Master 10%-"
     alias voltoggle="amixer sset Master toggle"
-alias gcom="git commit -m"
 fi
 
 
@@ -88,45 +87,13 @@ function parse_git_branch {
   if [[ $? -ne 0 ]]; then return; else printf " ["; fi
   if echo ${STATUS} | grep -c "renamed:"         &> /dev/null; then printf ">"; else printf ""; fi
   if echo ${STATUS} | grep -c "branch is ahead:" &> /dev/null; then printf "!"; else printf ""; fi
-  if echo ${STATUS} | grep -c "new file::"       &> /dev/null; then printf "+"; else printf ""; fi
+  if echo ${STATUS} | grep -c "new file:"       &> /dev/null; then printf "+"; else printf ""; fi
   if echo ${STATUS} | grep -c "Untracked files:" &> /dev/null; then printf "?"; else printf ""; fi
   if echo ${STATUS} | grep -c "modified:"        &> /dev/null; then printf "*"; else printf ""; fi
   if echo ${STATUS} | grep -c "deleted:"         &> /dev/null; then printf "-"; else printf ""; fi
   printf "]"
 }
 export PS1="\u@\h:\w\$(parse_git_branch)$ "
-
-# Oxford Chemistry network
-alias belladonna="ssh -X jesu2901@belladonna.chem.ox.ac.uk"
-alias parsley="ssh -X jesu2901@parsley.chem.ox.ac.uk"
-alias ciscoconnect="/opt/cisco/anyconnect/bin/vpn -s connect vpn.ox.ac.uk"
-alias mfgroup="sudo mount -t cifs -o user=mfgroup,vers=3\.0 //chem.ox.ac.uk/Research/ /media/samba"
-alias chemdata="sudo mount -t cifs -o user=mfgroup,vers=3\.0 //chem.ox.ac.uk/srf /media/samba"
-
-# DPhil
-if [[ -d "$HOME/Documents/DPhil" ]] ; then
-    alias dphil="cd $HOME/Documents/DPhil"
-    if [[ -d "$HOME/Documents/DPhil/projects/NMR-EsPy" ]] ; then
-        NMRESPYPATH="$HOME/Documents/DPhil/projects/NMR-EsPy"
-        alias espy="cd $NMRESPYPATH"
-        alias espyvenv="cd $NMRESPYPATH && rm -rf .venv; python3.9 -m venv .venv && source .venv/bin/activate && pip install --upgrade pip && pip install -e .[dev,docs] && cd -"
-        alias espysource="source $NMRESPYPATH/.venv/bin/activate"
-        alias espybuilddocs="espysource && cd $NMRESPYPATH/docs && ./builddocs.sh && cd -"
-        alias espyviewhtml="sensible-browser $NMRESPYPATH/docs/_build/html/index.html"
-        alias espyviewpdf="evince $NMRESPYPATH/docs/_build/latex/nmr-espy.pdf"
-    fi
-fi
-
-# ASRC
-alias spasrc="sshpass -f ~/.asrcpwd"
-alias sshasrc="sshpass -f ~/.asrcpwd ssh -Y simonhulse@10.16.7.230"
-alias vpnasrc="sudo dpkg -i ~/Documents/CUNY/admin/IT/GlobalProtect/GlobalProtect_UI_deb-5.2.6.0-18.deb"
-rsyncasrc () {
-    for path in "$@"
-    do
-        sshpass -f ~/.asrcpwd rsync -arv "simonhulse@10.16.7.230:$path" .
-    done
-}
 
 # Silly welcome using cowsay
 if [[ -x "$(command -v cowsay)" ]] ; then
