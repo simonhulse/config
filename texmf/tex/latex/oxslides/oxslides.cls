@@ -11,40 +11,7 @@
 \ProcessOptions\relax
 
 % --- FONT CONFIG --------------------------------------------------------
-\RequirePackage{fontspec}
-\RequirePackage[math-style=ISO,bold-style=ISO]{unicode-math}
-
-\setmainfont{FiraSans}[
-    Path           = /home/simonhulse/.fonts/FiraSans/,%
-    Extension      = .ttf,%
-    UprightFont    = *-Regular,%
-    BoldFont       = *-SemiBold,%
-    ItalicFont     = *-Italic,%
-    BoldItalicFont = *-BoldItalic,%
-]
-
-\setsansfont{FiraSans}[
-    Path           = /home/simonhulse/.fonts/FiraSans/,%
-    Extension      = .ttf,%
-    UprightFont    = *-Regular,%
-    BoldFont       = *-SemiBold,%
-    ItalicFont     = *-Italic,%
-    BoldItalicFont = *-BoldItalic,%
-]
-
-\setmathfont{FiraMath-Regular}[
-    Path           = /home/simonhulse/.fonts/,%
-    Extension      = .otf,%
-    Scale          = MatchLowercase,%
-]
-
-\setmonofont{FiraMono}[
-    Path           = /home/simonhulse/.fonts/FiraMono/,%
-    Extension      = .ttf,%
-    Scale          = MatchLowercase,%
-    UprightFont    = *-Regular,%
-    BoldFont       = *-Bold,%
-]
+\RequirePackage{slidesfonts}
 
 % --- Maths support ------------------------------------------------------
 \RequirePackage{amsmath}
@@ -57,11 +24,16 @@
 \RequirePackage{xcolor}
 \definecolor{oxfordblue}{HTML}{002e60}
 
+\RequirePackage{currfile}
+\edef\oxslides@figprefix{\currfiledir%
+theme_figures/}
+\def\oxslides@fig#1{\oxslides@figprefix#1}
+
 \ifmfbranding
-    \pgfdeclareimage[width=\paperwidth]{header}{/home/simonhulse/texmf/tex/latex/local/oxslides/theme_figures/mf_slideheader.pdf}
+    \pgfdeclareimage[width=\paperwidth]{header}{\oxslides@fig{mf_slideheader.pdf}}
     \newcommand{\headingshift}{43}
 \else
-    \pgfdeclareimage[width=\paperwidth]{header}{/home/simonhulse/texmf/tex/latex/local/oxslides/theme_figures/slideheader.pdf}
+    \pgfdeclareimage[width=\paperwidth]{header}{\oxslides@fig{slideheader.pdf}}
     \newcommand{\headingshift}{0}
 \fi
 
@@ -73,11 +45,11 @@
 % FID bullet
 \setlist[itemize,1]{
     leftmargin=20pt,%
-    label={\smash{\raisebox{-0.1\height}{\includegraphics{/home/simonhulse/texmf/tex/latex/local/oxslides/theme_figures/fid_12pt_bullet.pdf}}}},%
+    label={\smash{\raisebox{-0.1\height}{\includegraphics{\oxslides@fig{fid_12pt_bullet.pdf}}}}},%
 }
 \setlist[itemize,2]{
     leftmargin=15pt,%
-    label={\smash{\raisebox{-0.1\height}{\includegraphics{/home/simonhulse/texmf/tex/latex/local/oxslides/theme_figures/spec_12pt_bullet.pdf}}}},%
+    label={\smash{\raisebox{-0.1\height}{\includegraphics{\oxslides@fig{spec_12pt_bullet.pdf}}}}},%
 }
 
 % --- Title slide format -------------------------------------------------
@@ -113,7 +85,7 @@
 {
    \begin{picture}(0,0)
        \put(0, 5){
-           \makebox(356.195,0){
+           \makebox(\strip@pt\paperwidth,0){
                {\color{oxfordblue}\insertshortdate\hfill\insertshorttitle\hfill Slide \insertframenumber}
            }
        }

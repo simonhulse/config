@@ -8,11 +8,15 @@
 \setbeamertemplate{navigation symbols}{}
 \setbeamersize{text margin left=15pt}
 
+\RequirePackage{slidesfonts}
+
 \def\email#1{\gdef\@email{#1}}
 \RequirePackage{graphicx}
 \RequirePackage{currfile}
-\graphicspath{{\currfiledir}}
-\pgfdeclareimage[width=\paperwidth]{header}{theme_figures/slideheader.pdf}
+\edef\asrcslides@figprefix{\currfiledir%
+theme_figures/}
+\def\asrcslides@fig#1{\asrcslides@figprefix#1}
+\pgfdeclareimage[width=\paperwidth]{header}{\asrcslides@fig{slideheader.pdf}}
 
 % --- Colour -------------------------------------------------------------
 \RequirePackage{xcolor}
@@ -47,14 +51,12 @@
    \end{picture}
 }
 
-% TODO
 \setbeamertemplate{footline}
 {
-   \setlength{\fboxsep}{0pt}
    \begin{picture}(0,0)
        \put(0, 5){
-           \makebox(356.195,0){
-               {\color{cunyblue}\bfseries\insertshortdate\hfill\hspace*{-20pt}\insertshorttitle\hfill Slide \insertframenumber}
+           \makebox(\strip@pt\paperwidth,0){
+               {\color{cunyblue}\bfseries\insertshortdate\hfill\insertshorttitle\hfill Slide \insertframenumber}
            }
        }
    \end{picture}
