@@ -1,8 +1,3 @@
-# .config/fish/conf.d/variables.fish
-# Simon Hulse
-# simonhulse@protonmail.com
-# Last Edited: Tue 03 Jun 2025 12:33:37 PM EDT
-
 # >>>> VARIABLES >>>>
 
 set -x DAISY 'simonhulse@10.16.7.230'

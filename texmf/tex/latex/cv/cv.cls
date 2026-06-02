@@ -1,8 +1,3 @@
-% /home/simon/texmf/tex/latex/cv/cv.cls
-% Simon Hulse
-% simonhulse@protonmail.com
-% Last Edited: Fri 16 May 2025 01:55:19 PM EDT
-
 \ProvidesClass{cv}[2025/03/14 CV class]
 
 \LoadClass{cover}

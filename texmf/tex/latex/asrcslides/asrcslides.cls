@@ -1,8 +1,3 @@
-% /home/simon/texmf/tex/latex/asrcslides/asrcslides.cls
-% Simon Hulse
-% simonhulse@protonmail.com
-% Last Edited: Thu 08 May 2025 04:42:37 PM EDT
-
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{asrcslides}[2025/05/07 ASRC-branded beamer class]
 

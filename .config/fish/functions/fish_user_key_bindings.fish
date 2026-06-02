@@ -1,7 +1,4 @@
 #fish_user_key_bindings.fish
-#Simon Hulse
-#simonhulse@protonmail.com
-#Last Edited: Mon 10 Jun 2024 10:01:36 PM EDT
 
 function fish_user_key_bindings
     fish_vi_key_bindings

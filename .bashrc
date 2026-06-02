@@ -1,8 +1,3 @@
-# .bashrc
-# Simon Hulse
-# simonhulse@protonmail.com
-# Last Edited: Wed 25 Sep 2024 11:07:27 PM EDT
-
 # Source Ubuntu's default .bashrc
 # I'm mainly keeping this here as I don't really know how
 # to set up colors on gnome-terminal, and by sourcing this,

@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{oxslides}[10-6-22 Oxford-branded beamer class by Simon Hulse]
+\ProvidesClass{oxslides}[10-6-22 Oxford-branded beamer class]
 
 \LoadClass{beamer}
 \setbeamertemplate{navigation symbols}{}
