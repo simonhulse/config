@@ -1,19 +1,21 @@
-% cv/cv.cls
+% /home/simon/texmf/tex/latex/cv/cv.cls
 % Simon Hulse
 % simonhulse@protonmail.com
-% Last Edited: Fri 14 Mar 2025 11:40:04 AM EDT
+% Last Edited: Fri 16 May 2025 01:55:19 PM EDT
 
 \ProvidesClass{cv}[2025/03/14 CV class]
 
 \LoadClass{cover}
 
-\newgeometry{left=0.5in,right=0.5in,top=0.5cm,bottom=0.5cm}
+\RequirePackage{ifthen}
+\newgeometry{left=0.3in,right=0.3in,top=0.15in,bottom=0.15in}
 \RequirePackage{enumitem}
 \RequirePackage{pifont}
 \setlist{%
     nosep,%
+    topsep=-\parskip,%
     leftmargin=*,%
-    label={\raisebox{1pt}{\hbox{\scriptsize\ding{118}}}}%
+    label={\raisebox{0.1ex}{\hbox{\scriptsize\ding{118}}}}%
 }
 
 \def\sectionskip{\smallskip}
@@ -25,48 +27,45 @@
         {\large\bfseries\scshape{#1}} % Section title
         \sectionlineskip
         \hrule % Horizontal line
+        \nobreak
     }
+    {\smallskip}
 
-\newenvironment{rSubsection}[3] % 3 args: institution, year(s) employed, job title
-    {
-        {\bf #1} \hfill {#2} \\
-        \ifthenelse{\equal{#3}{}}
-            {}
-            {
-                {
-                    \em #3
-                    \vspace{-6pt}
-
-                }
-            }
+\newenvironment{rSubsection}[3] % institution, year(s), role/title
+    {%
+        {\bfseries #1} \hfill {#2} \\
+        \ifthenelse{\equal{#3}{}}{}{{\itshape #3}}%
+        \begin{itemize}%
     }
-    {
-
-    }
+    {\end{itemize}\smallskip}
 
 \RequirePackage[%
-backend=biber,%
-sorting=ddnt,%
+    backend=biber,%
+    sorting=none,%
+    doi=true,%
+    maxbibnames=50,%
+    defernumbers=true,%
 ]{biblatex}
+\renewbibmacro{in:}{}
 
-\setlength{\bibitemsep}{.5\baselineskip plus .05\baselineskip minus .05\baselineskip}
+% >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+% https://github.com/plk/biblatex/issues/793
+\renewbibmacro*{issue+date}{%
+  \ifboolexpr{test {\iffieldundef{year}}
+              and test {\iffieldundef{issue}}}
+    {}
+    {\printtext[parens]{%
+       \printfield{issue}%
+       \setunit*{\addspace}%
+       \usebibmacro{date}}}%
+  \newunit}
+% <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-\newbibmacro*{bbx:parunit}{%
-  \ifbibliography
-    {\setunit{\bibpagerefpunct}\newblock
-     \usebibmacro{pageref}%
-     \clearlist{pageref}%
-     \setunit{\adddot\par\nobreak}}
-    {}}
+\setlength{\bibitemsep}{.3\baselineskip plus .05\baselineskip minus .05\baselineskip}
 
-\renewbibmacro*{doi+eprint+url}{%
-  \usebibmacro{bbx:parunit}
-  \iftoggle{bbx:doi}
-    {\printfield{doi}}
-    {}%
-  \iftoggle{bbx:eprint}
-    {\usebibmacro{eprint}}
-    {}%
-  \iftoggle{bbx:url}
-    {\usebibmacro{url+urldate}}
-    {}}
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \ifthenelse{\equal{#1}{Hulse}}{\textbf{#1}}{#1}%
+}
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \ifthenelse{\equal{\namepartfamily}{Hulse}}{\textbf{#1}}{#1}%
+}

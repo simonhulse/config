@@ -1,72 +1,27 @@
-% texmf/tex/latex/asrcslides/asrcslides.cls
+% /home/simon/texmf/tex/latex/asrcslides/asrcslides.cls
 % Simon Hulse
 % simonhulse@protonmail.com
-% Last Edited: Wed 07 May 2025 04:49:00 PM EDT
+% Last Edited: Thu 08 May 2025 04:42:37 PM EDT
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{asrcslides}[7-5-25 ASRC-branded beamer class by Simon Hulse]
+\ProvidesClass{asrcslides}[2025/05/07 ASRC-branded beamer class]
 
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
+\ProcessOptions\relax
 \LoadClass{beamer}
+
 \setbeamertemplate{navigation symbols}{}
 \setbeamersize{text margin left=15pt}
 
-\ProcessOptions\relax
-
-% --- FONT CONFIG --------------------------------------------------------
-\RequirePackage{fontspec}
-\RequirePackage[math-style=ISO,bold-style=ISO]{unicode-math}
-
-\setmainfont{FiraSans}[
-    Path           = /home/simonhulse/.fonts/FiraSans/,%
-    Extension      = .ttf,%
-    UprightFont    = *-Regular,%
-    BoldFont       = *-SemiBold,%
-    ItalicFont     = *-Italic,%
-    BoldItalicFont = *-BoldItalic,%
-]
-
-\setsansfont{FiraSans}[
-    Path           = /home/simonhulse/.fonts/FiraSans/,%
-    Extension      = .ttf,%
-    UprightFont    = *-Regular,%
-    BoldFont       = *-SemiBold,%
-    ItalicFont     = *-Italic,%
-    BoldItalicFont = *-BoldItalic,%
-]
-
-\setmathfont{FiraMath-Regular}[
-    Path           = /home/simonhulse/.fonts/,%
-    Extension      = .otf,%
-    Scale          = MatchLowercase,%
-]
-
-\setmonofont{FiraMono}[
-    Path           = /home/simonhulse/.fonts/FiraMono/,%
-    Extension      = .ttf,%
-    Scale          = MatchLowercase,%
-    UprightFont    = *-Regular,%
-    BoldFont       = *-Bold,%
-]
-
-% --- Maths support ------------------------------------------------------
-\RequirePackage{amsmath}
-\RequirePackage{amssymb}
+\def\email#1{\gdef\@email{#1}}
 \RequirePackage{graphicx}
-% I use this command quite a lot so thought I would include it by default
-\DeclareMathOperator*{\argmin}{arg\,min}
+\RequirePackage{currfile}
+\graphicspath{{\currfiledir}}
+\pgfdeclareimage[width=\paperwidth]{header}{theme_figures/slideheader.pdf}
 
 % --- Colour -------------------------------------------------------------
 \RequirePackage{xcolor}
 \definecolor{cunyblue}{HTML}{005DAA}
-
-\pgfdeclareimage[width=\paperwidth]{header}{/home/simonhulse/texmf/tex/latex/asrcslides/theme_figures/slideheader.pdf}
-
-\def\email#1{\gdef\@email{#1}}
-
-% --- Itemize configuration ----------------------------------------------
-\usepackage{enumitem}
-\setlist[itemize,1]{leftmargin=20pt}
-\setlist[itemize,2]{leftmargin=15pt}
 
 % --- Title slide format -------------------------------------------------
 \setbeamertemplate{title page}

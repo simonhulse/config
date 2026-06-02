@@ -1,9 +1,5 @@
-% cover/cover.cls
-% Simon Hulse
-% simonhulse@protonmail.com
-% Last Edited: Fri 14 Mar 2025 12:04:04 PM EDT
-
-\ProvidesClass{cover}[2025/03/13 cover letter class]
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{cover}[2026/05/14 cover letter class]
 
 \LoadClass[11pt,letterpaper]{article} % Font size and paper type
 
@@ -26,9 +22,8 @@
     BoldFont    = *-Bold,%
 ]
 
-\RequirePackage[left=0.9in,top=1in,right=0.9in,bottom=1in]{geometry} % Document margins
+\RequirePackage[left=0.5in,top=1in,right=0.5in,bottom=1in]{geometry} % Document margins
 \RequirePackage[parfill]{parskip} % Remove paragraph indentation
-\RequirePackage{ifthen} % Required for ifthenelse statements
 
 \pagestyle{empty} % Suppress page numbers
 
@@ -53,72 +48,44 @@
 
 \def \printname {
   \begingroup
-    \hfil{\namesize\bf\@name}\hfil
+    \hfil{\namesize\bfseries\@name}\hfil
     \nameskip\break
+  \endgroup
 }
 
 \def \addressSep#1{\def\@addressSep{#1}}
-\def \@addressSep{\quad} % Set default address separator to a diamond
+\def \@addressSep{\discretionary{}{}{\kern0.5em\texttt{|}\kern0.5em}}
 
-% One, two or three address lines can be specified
-\let \@addressone \relax
-\let \@addresstwo \relax
-\let \@addressthree \relax
-\let \@addressfour \relax
-\let \@addressfive \relax
+% Accumulate all address items into one wrapping centered paragraph
+\def\@addresscontent{}
 
-% \address command can be used to set the first, second, and third address (last 2 optional)
 \def \address #1{
-    \@ifundefined{@addressone}{
-        \def \@addressone {#1}
-    }{
-        \@ifundefined{@addresstwo}{
-            \def \@addresstwo {#1}
-        }{
-            \@ifundefined{@addressthree}{
-                \def \@addressthree {#1}
-            }{
-                \@ifundefined{@addressfour}{
-                    \def \@addressfour {#1}
-                }{
-                    \def \@addressfive {#1}
-                }
-            }
-        }
-    }
+    \ifx\@addresscontent\empty
+        \gdef\@addresscontent{#1}%
+    \else
+        \g@addto@macro\@addresscontent{\@addressSep#1}%
+    \fi
 }
 
 \def \printaddress {
-    \centerline{
-        \@ifundefined{@addressone}{}{%
-            \@addressone%
-            \@ifundefined{@addresstwo}{}{%
-                \@addressSep\@addresstwo
-                \@ifundefined{@addressthree}{}{%
-                    \@addressSep\@addressthree
-                    \@ifundefined{@addressfour}{}{%
-                        \@addressSep\@addressfour
-                    }
-                }
-            }
-        }
-    }
-
+    {\centering\@addresscontent\par}
     \addressskip
 }
 
 \RequirePackage{fontawesome5}
-\newcommand{\ICON}[2]{#1\ \raisebox{1pt}{#2}}
+\newcommand{\ICON}[2]{#1~\raisebox{0.1ex}{#2}}
 \newcommand{\BUILDING}[2]{\ICON{\faBuilding}{\href{#1}{#2}}}
 \newcommand{\EMAIL}[1]{\ICON{\faEnvelope}{\href{mailto:#1}{\texttt{#1}}}}
 \newcommand{\GITHUB}[1]{\ICON{\faGithub}{\href{https://github.com/#1}{\texttt{#1}}}}
 \newcommand{\LINKEDIN}[1]{\ICON{\faLinkedin}{\href{https://www.linkedin.com/in/#1}{\texttt{#1}}}}
 \newcommand{\ORCID}[1]{\ICON{\faOrcid}{\href{https://orcid.org/#1}{\texttt{#1}}}}
 \newcommand{\PHONE}[1]{\ICON{\faPhone}{\texttt{#1}}}
+\newcommand{\WEBSITE}[2]{\ICON{\faGlobe}{\href{#1}{\texttt{#2}}}}
 
 \let\ori@document=\document
 \renewcommand{\document}{
     \ori@document  % Begin document
+    \vspace*{-1.3cm}
     \printname % Print the name specified with \name
     \printaddress
 }
