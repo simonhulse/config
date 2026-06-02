@@ -108,7 +108,7 @@ type = internal/bspwm
 
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.green}
+label-focused-underline= ${colors.foreground}
 label-focused-padding = 2
 
 label-occupied = %index%
@@ -141,7 +141,7 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.green}
+label-focused-underline= ${colors.foreground}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor

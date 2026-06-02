@@ -30,7 +30,7 @@ set $gb_green   #b8bb26
 default_border pixel 1
 
 # class                 border      background  text        indicator   child_border
-client.focused          $gb_green   $gb_bg1     $gb_fg      $gb_blue    $gb_green
+client.focused          $gb_fg      $gb_bg1     $gb_fg      $gb_blue    $gb_fg
 client.focused_inactive $gb_bg1     $gb_bg1     $gb_gray    $gb_bg1     $gb_bg1
 client.unfocused        $gb_bg      $gb_bg      $gb_gray    $gb_bg      $gb_bg
 client.urgent           $gb_red     $gb_red     $gb_bg      $gb_red     $gb_red
