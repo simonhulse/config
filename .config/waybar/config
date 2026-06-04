@@ -1,0 +1,66 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 27,
+    "margin-top": 4,
+    "margin-left": 4,
+    "margin-right": 4,
+
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["disk", "pulseaudio", "custom/memory", "custom/cpu", "network", "custom/battery", "custom/temperature"],
+
+    "sway/workspaces": {
+        "format": "{name}",
+        "on-click": "activate"
+    },
+
+    "clock": {
+        "format": "{:%Y-%m-%d %H:%M %Z}",
+        "format-alt": "{:%Y-%m-%d %H:%M:%S %Z}",
+        "interval": 5
+    },
+
+    "disk": {
+        "format": "DISC: {percentage_used}%",
+        "path": "/",
+        "interval": 25
+    },
+
+    "pulseaudio": {
+        "format": "VOL: {volume}%",
+        "format-muted": "VOL: muted",
+        "on-click": "pavucontrol"
+    },
+
+    "custom/memory": {
+        "exec": "~/.config/waybar/scripts/memory.sh",
+        "interval": 2,
+        "markup": true
+    },
+
+    "custom/cpu": {
+        "exec": "~/.config/waybar/scripts/cpu.sh",
+        "interval": 2,
+        "markup": true
+    },
+
+    "network": {
+        "interface": "wlp0s20f3",
+        "format-wifi": "NET: {essid}",
+        "format-disconnected": "NET: off",
+        "interval": 3
+    },
+
+    "custom/battery": {
+        "exec": "~/.config/waybar/scripts/battery.sh",
+        "interval": 10,
+        "markup": true
+    },
+
+    "custom/temperature": {
+        "exec": "~/.config/waybar/scripts/temperature.sh",
+        "interval": 5,
+        "markup": true
+    }
+}
