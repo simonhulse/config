@@ -1,0 +1,82 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#   "numpy",
+#   "matplotlib",
+# ]
+# ///
+import numpy as np
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
+import argparse
+from pathlib import Path
+
+BG = '#282828'
+
+# Gruvbox gradient: red (top) → orange → yellow → green → aqua → blue → purple (bottom)
+GRADIENT_COLORS = [
+    '#d3869b',  # bright purple  (bottom, t=0)
+    '#83a598',  # bright blue
+    '#8ec07c',  # bright aqua
+    '#b8bb26',  # bright green
+    '#fabd2f',  # bright yellow
+    '#fe8019',  # bright orange
+    '#fb4934',  # bright red     (top, t=1)
+]
+CMAP = LinearSegmentedColormap.from_list('gruvbox', GRADIENT_COLORS)
+
+def main():
+    parser = argparse.ArgumentParser(description='Generate a gruvbox damped-sinusoid wallpaper')
+    parser.add_argument('-o', '--output', default=None)
+    parser.add_argument('--width', type=int, default=1920)
+    parser.add_argument('--height', type=int, default=1080)
+    parser.add_argument('--signals', type=int, default=20)
+    parser.add_argument('--seed', type=int, default=42)
+    args = parser.parse_args()
+    if args.output is None:
+        args.output = f'{Path.home()}/.wallpapers/wallpaper_{args.width}x{args.height}.png'
+    Path(args.output).parent.mkdir(parents=True, exist_ok=True)
+
+    dpi = 100
+    fig, ax = plt.subplots(figsize=(args.width / dpi, args.height / dpi), dpi=dpi)
+    fig.patch.set_facecolor(BG)
+    ax.set_facecolor(BG)
+    ax.set_position([0, 0, 1, 1])
+
+    x = np.linspace(0, 6 * np.pi, 4000)
+    rng = np.random.default_rng(seed=args.seed)
+    y_span = 7.0
+
+    for i in range(args.signals):
+        freq = rng.uniform(0.5, 2.2)
+        decay = rng.uniform(0.12, 0.45)
+        phase = rng.uniform(0, 2 * np.pi)
+        amplitude = rng.uniform(0.4, 1.1)
+        y_offset = rng.uniform(-y_span / 2, y_span / 2)
+
+        # Map y_offset to [0,1]: top (high y) → 1 (red), bottom (low y) → 0 (purple)
+        t = (y_offset + y_span / 2) / y_span
+        color = CMAP(t)
+
+        y = amplitude * np.exp(-decay * x) * np.sin(freq * x + phase) + y_offset
+
+        alpha = rng.uniform(0.75, 1.0)
+        lw = rng.uniform(1.4, 2.2)
+
+        # glow layers: wide+faint, medium, core
+        ax.plot(x, y, color=color, alpha=alpha * 0.18, linewidth=lw * 6, solid_capstyle='round')
+        ax.plot(x, y, color=color, alpha=alpha * 0.40, linewidth=lw * 2.5, solid_capstyle='round')
+        ax.plot(x, y, color=color, alpha=alpha, linewidth=lw, solid_capstyle='round')
+
+    ax.set_xlim(x[0], x[-1])
+    ax.set_ylim(-y_span * 0.75, y_span * 0.75)
+    ax.axis('off')
+
+    fig.savefig(args.output, dpi=dpi, facecolor=BG)
+    print(f'Saved {args.width}x{args.height} wallpaper to {args.output}')
+
+if __name__ == '__main__':
+    main()
