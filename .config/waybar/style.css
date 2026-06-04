@@ -47,6 +47,10 @@ window#waybar {
     color: #ebdbb2;
 }
 
+#tray {
+    padding: 0 8px;
+}
+
 #custom-bluetooth {
     color: #ebdbb2;
 }

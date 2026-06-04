@@ -42,6 +42,9 @@ exec swayidle -w \
 # NetworkManager applet
 exec nm-applet --indicator
 
+# Automount removable media
+exec udiskie --tray
+
 # Keyboard layout (Wayland equivalent of setxkbmap)
 input type:keyboard {
     xkb_layout us,gb
