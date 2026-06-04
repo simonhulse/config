@@ -16,6 +16,8 @@ set $gb_red     #fb4934
 set $gb_blue    #83a598
 set $gb_green   #b8bb26
 
+output * bg #282828 solid_color
+
 default_border pixel 1
 
 # class                 border      background  text        indicator   child_border
@@ -25,6 +27,9 @@ client.unfocused        $gb_bg      $gb_bg      $gb_gray    $gb_bg      $gb_bg
 client.urgent           $gb_red     $gb_red     $gb_bg      $gb_red     $gb_red
 client.placeholder      $gb_bg      $gb_bg      $gb_fg      $gb_bg      $gb_bg
 client.background       $gb_bg
+
+# Import Wayland session vars into systemd user environment so portal services work
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY
 
 # XDG autostart
 exec dex --autostart
