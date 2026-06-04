@@ -1,6 +1,7 @@
 * {
     font-family: "Fira Code";
-    font-size: 10px;
+    font-size: 12px;
+    font-weight: bold;
     min-height: 0;
     border: none;
     border-radius: 0;
@@ -37,7 +38,7 @@ window#waybar {
 #clock,
 #disk,
 #pulseaudio,
-#network,
+#custom-network,
 #custom-memory,
 #custom-cpu,
 #custom-battery,
@@ -46,10 +47,18 @@ window#waybar {
     color: #ebdbb2;
 }
 
-#pulseaudio.muted {
-    color: #a89984;
+#custom-bluetooth {
+    color: #ebdbb2;
 }
 
-#network.disconnected {
+#custom-bluetooth.connected {
+    padding: 0 8px;
+}
+
+#custom-network.disconnected {
+    color: #fb4934;
+}
+
+#pulseaudio.muted {
     color: #a89984;
 }

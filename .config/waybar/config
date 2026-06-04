@@ -8,7 +8,7 @@
 
     "modules-left": ["sway/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["disk", "pulseaudio", "custom/memory", "custom/cpu", "network", "custom/battery", "custom/temperature"],
+    "modules-right": ["custom/network", "custom/bluetooth", "disk", "pulseaudio", "custom/memory", "custom/cpu", "custom/battery", "custom/temperature"],
 
     "sway/workspaces": {
         "format": "{name}",
@@ -22,7 +22,7 @@
     },
 
     "disk": {
-        "format": "DISC: {percentage_used}%",
+        "format": "DISC: {used}/{total}",
         "path": "/",
         "interval": 25
     },
@@ -45,11 +45,16 @@
         "markup": true
     },
 
-    "network": {
-        "interface": "wlp0s20f3",
-        "format-wifi": "NET: {essid}",
-        "format-disconnected": "NET: off",
-        "interval": 3
+    "custom/network": {
+        "exec": "~/.config/waybar/scripts/network.sh",
+        "return-type": "json",
+        "interval": 5
+    },
+
+    "custom/bluetooth": {
+        "exec": "~/.config/waybar/scripts/bluetooth.sh",
+        "return-type": "json",
+        "interval": 5
     },
 
     "custom/battery": {
