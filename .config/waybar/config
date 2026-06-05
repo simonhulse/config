@@ -8,7 +8,7 @@
 
     "modules-left": ["sway/workspaces", "tray"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/network", "custom/bluetooth", "disk", "pulseaudio", "custom/memory", "custom/cpu", "custom/battery", "custom/temperature"],
+    "modules-right": ["custom/claude", "custom/network", "custom/bluetooth", "disk", "pulseaudio", "custom/memory", "custom/cpu", "custom/battery", "custom/temperature"],
 
     "sway/workspaces": {
         "format": "{name}",
@@ -66,6 +66,13 @@
     "custom/temperature": {
         "exec": "~/.config/waybar/scripts/temperature.sh",
         "interval": 5,
+        "markup": true
+    },
+
+    "custom/claude": {
+        "exec": "python3 ~/.config/waybar/scripts/claude.py",
+        "return-type": "json",
+        "interval": 60,
         "markup": true
     }
 }
