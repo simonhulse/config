@@ -29,7 +29,7 @@ client.placeholder      $gb_bg      $gb_bg      $gb_fg      $gb_bg      $gb_bg
 client.background       $gb_bg
 
 # Import Wayland session vars into systemd user environment so portal services work
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY && systemctl --user restart xdg-desktop-portal.service
 
 # XDG autostart
 exec dex --autostart
@@ -46,7 +46,7 @@ exec nm-applet --indicator
 exec udiskie --tray
 
 # Output configuration (disable internal display when external is connected)
-exec kanshi
+exec_always pkill kanshi; kanshi
 
 # Keyboard layout — per-device to avoid needing to toggle
 input "1:1:AT_Translated_Set_2_keyboard" xkb_layout us
