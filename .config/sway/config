@@ -45,6 +45,9 @@ exec nm-applet --indicator
 # Automount removable media
 exec udiskie --tray
 
+# Output configuration (disable internal display when external is connected)
+exec kanshi
+
 # Keyboard layout (Wayland equivalent of setxkbmap)
 input type:keyboard {
     xkb_layout us,gb
