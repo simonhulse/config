@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 CACHE_FILE = "/tmp/claude_usage_cache.json"
-CACHE_TTL = 300  # seconds between API calls
+CACHE_TTL = 30  # seconds between API calls
 
 
 def read_cache():

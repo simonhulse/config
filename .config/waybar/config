@@ -72,7 +72,7 @@
     "custom/claude": {
         "exec": "python3 ~/.config/waybar/scripts/claude.py",
         "return-type": "json",
-        "interval": 60,
+        "interval": 30,
         "markup": true
     }
 }
