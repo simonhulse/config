@@ -6,6 +6,11 @@ from pathlib import Path
 
 CACHE_FILE = "/tmp/claude_usage_cache.json"
 CACHE_TTL = 30  # seconds between API calls
+CREDENTIALS_FILE = Path.home() / ".claude/.credentials.json"
+OAUTH_CLIENT_ID = "9d1c250a-e61b-44d9-88ed-5944d1962f5e"
+OAUTH_TOKEN_URL = "https://claude.ai/v1/oauth/token"
+# Refresh if token expires within this many seconds
+TOKEN_REFRESH_BUFFER = 300
 
 
 def read_cache():
@@ -23,8 +28,43 @@ def write_cache(data):
     Path(CACHE_FILE).write_text(json.dumps(data))
 
 
+def refresh_oauth_token(creds):
+    oauth = creds["claudeAiOauth"]
+    result = subprocess.run(
+        [
+            "curl", "-s", "-X", "POST", OAUTH_TOKEN_URL,
+            "-H", "Content-Type: application/json",
+            "-d", json.dumps({
+                "grant_type": "refresh_token",
+                "refresh_token": oauth["refreshToken"],
+                "client_id": OAUTH_CLIENT_ID,
+            }),
+        ],
+        capture_output=True, text=True, timeout=15,
+    )
+    data = json.loads(result.stdout)
+    if "access_token" not in data:
+        raise RuntimeError(f"Token refresh failed: {result.stdout}")
+    oauth["accessToken"] = data["access_token"]
+    if "expires_in" in data:
+        oauth["expiresAt"] = int((time.time() + data["expires_in"]) * 1000)
+    if "refresh_token" in data:
+        oauth["refreshToken"] = data["refresh_token"]
+    CREDENTIALS_FILE.write_text(json.dumps(creds, indent=2))
+    return creds
+
+
+def load_credentials():
+    creds = json.loads(CREDENTIALS_FILE.read_text())
+    oauth = creds["claudeAiOauth"]
+    expires_at_s = oauth.get("expiresAt", 0) / 1000
+    if time.time() + TOKEN_REFRESH_BUFFER >= expires_at_s:
+        creds = refresh_oauth_token(creds)
+    return creds
+
+
 def fetch_utilization():
-    creds = json.loads(Path.home().joinpath(".claude/.credentials.json").read_text())
+    creds = load_credentials()
     token = creds["claudeAiOauth"]["accessToken"]
     result = subprocess.run(
         [
