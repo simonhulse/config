@@ -1,5 +1,8 @@
 profile {
-    output HDMI-A-1 enable
+    output "Samsung Electric Company U28E590 H4LN707006" {
+        mode 2560x1440
+        position 0,0
+    }
     output eDP-1 disable
 }
 
