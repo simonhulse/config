@@ -1,0 +1,15 @@
+[Unit]
+Description=Proton Mail Bridge (headless)
+Documentation=https://proton.me/support/bridge
+# Credentials live in the gnome-keyring secret service, started by PAM at login.
+After=dbus.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/protonmail-bridge --noninteractive
+# The keyring may not be unlocked yet on the first try; keep retrying.
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
