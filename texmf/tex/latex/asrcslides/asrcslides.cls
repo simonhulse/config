@@ -17,6 +17,12 @@
 theme_figures/}
 \def\asrcslides@fig#1{\asrcslides@figprefix#1}
 \pgfdeclareimage[width=\paperwidth]{header}{\asrcslides@fig{slideheader.pdf}}
+% Header height scales with page width (image is 273.146 x 22.5pt); the
+% frame title sits relative to the 30pt banner of the 4:3 layout.
+\newlength{\asrcslides@headerht}
+\setlength{\asrcslides@headerht}{\dimexpr\paperwidth*225/2731\relax}
+\newlength{\asrcslides@titleshift}
+\setlength{\asrcslides@titleshift}{\dimexpr(\asrcslides@headerht-30pt)/2\relax}
 
 % --- Colour -------------------------------------------------------------
 \RequirePackage{xcolor}
@@ -47,7 +53,7 @@ theme_figures/}
 \setbeamertemplate{headline}
 {
    \begin{picture}(0,0)
-       \put(0,-30){\pgfuseimage{header}}
+       \put(0,\strip@pt\dimexpr-\asrcslides@headerht\relax){\pgfuseimage{header}}
    \end{picture}
 }
 
@@ -63,7 +69,7 @@ theme_figures/}
 \setbeamertemplate{frametitle}
 {
   \begin{picture}(0,0)
-      \put(-5,0){\bfseries\normalsize\color{white}\insertframetitle}
-      \put(-5,-10){\tiny\bfseries\color{white}\insertframesubtitle}
+      \put(-5,\strip@pt\dimexpr-\asrcslides@titleshift\relax){\bfseries\normalsize\color{white}\insertframetitle}
+      \put(-5,\strip@pt\dimexpr-10pt-\asrcslides@titleshift\relax){\tiny\bfseries\color{white}\insertframesubtitle}
   \end{picture}
 }
