@@ -47,7 +47,7 @@
                 {
                     \color{slidesprimary}
                     {\Large\textbf{\inserttitle}\\[0.7cm]}
-                    {\textit{\insertauthor}\\}
+                    {\textbf{\insertauthor}\\}
                     {\footnotesize\texttt{\@email}\\[0.3cm]}
                     {\insertdate\\[0.3cm]}
                 }
