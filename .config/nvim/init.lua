@@ -49,6 +49,9 @@ vim.opt.backupdir = { backup_dir }
 -- filetype settings
 vim.g.tex_flavor = "latex"  -- override .tex default from plaintex
 
+-- remember vim-localvimrc answers across sessions (ask once per .lvimrc)
+vim.g.localvimrc_persistent = 2
+
 -- keymaps
 local map = vim.keymap.set
 

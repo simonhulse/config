@@ -69,6 +69,9 @@ nnoremap <leader>p   a <Esc>p
 nnoremap <leader>b   0v$gq
 nnoremap <leader>l   :AsyncRun ls
 
+" Remember vim-localvimrc answers across sessions (ask once per .lvimrc)
+let g:localvimrc_persistent = 2
+
 " Autocmds
 autocmd BufWritePre * if &filetype !=# 'markdown' | %s/\s\+$//e | endif
 
