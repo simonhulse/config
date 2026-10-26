@@ -4,8 +4,10 @@ profile {
         position 0,0
     }
     output eDP-1 disable
+    exec ~/.config/waybar/launch.sh
 }
 
 profile {
     output eDP-1 enable
+    exec ~/.config/waybar/launch.sh
 }
