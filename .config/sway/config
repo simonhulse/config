@@ -171,5 +171,7 @@ focus_follows_mouse no
 # Screenshots (Wayland: grim + slurp instead of gnome-screenshot)
 bindsym Print exec grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
 bindsym $mod+Print exec grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+bindsym $mod+Shift+Print exec grim -g "$(slurp)" - | wl-copy
+bindsym Ctrl+Print exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
 
 exec_always ~/.config/waybar/launch.sh
