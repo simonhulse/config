@@ -35,9 +35,10 @@ window#waybar {
     background-color: #3c3836;
 }
 
-#clock,
+#custom-clock,
 #disk,
 #pulseaudio,
+#backlight,
 #custom-claude,
 #custom-network,
 #custom-memory,
@@ -50,7 +51,7 @@ window#waybar {
 }
 
 #custom-temperature,
-#clock {
+#custom-clock {
     border-right: none;
 }
 
@@ -73,4 +74,14 @@ window#waybar {
 
 #pulseaudio.muted {
     color: #a89984;
+}
+
+#custom-vpn {
+    padding: 0 8px;
+    color: #ebdbb2;
+    border-right: 1px solid #ebdbb2;
+}
+
+#custom-vpn.connected {
+    color: #b8bb26;
 }

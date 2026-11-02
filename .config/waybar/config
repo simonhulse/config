@@ -1,78 +1,104 @@
-{
-    "layer": "top",
-    "position": "top",
-    "height": 27,
-    "margin-top": 4,
-    "margin-left": 4,
-    "margin-right": 4,
-
-    "modules-left": ["sway/workspaces", "tray"],
-    "modules-center": ["clock"],
-    "modules-right": ["custom/claude", "custom/network", "custom/bluetooth", "disk", "pulseaudio", "custom/memory", "custom/cpu", "custom/battery", "custom/temperature"],
-
-    "sway/workspaces": {
-        "format": "{name}",
-        "on-click": "activate"
+[
+    {
+        "layer": "top",
+        "position": "top",
+        "height": 27,
+        "margin-top": 4,
+        "margin-left": 4,
+        "margin-right": 4,
+        "modules-left": [
+            "sway/workspaces",
+            "tray"
+        ],
+        "modules-center": [
+            "custom/clock"
+        ],
+        "sway/workspaces": {
+            "format": "{name}",
+            "on-click": "activate"
+        },
+        "custom/clock": {
+            "exec": "~/.config/waybar/scripts/clock.sh",
+            "interval": 5,
+            "markup": true
+        },
+        "name": "top"
     },
-
-    "clock": {
-        "format": "{:%Y-%m-%d %H:%M %Z}",
-        "format-alt": "{:%Y-%m-%d %H:%M:%S %Z}",
-        "interval": 5
-    },
-
-    "disk": {
-        "format": "DISC: {used}/{total}",
-        "path": "/",
-        "interval": 25
-    },
-
-    "pulseaudio": {
-        "format": "VOL: {volume}%",
-        "format-muted": "VOL: muted",
-        "on-click": "pavucontrol"
-    },
-
-    "custom/memory": {
-        "exec": "~/.config/waybar/scripts/memory.sh",
-        "interval": 2,
-        "markup": true
-    },
-
-    "custom/cpu": {
-        "exec": "~/.config/waybar/scripts/cpu.sh",
-        "interval": 2,
-        "markup": true
-    },
-
-    "custom/network": {
-        "exec": "~/.config/waybar/scripts/network.sh",
-        "return-type": "json",
-        "interval": 5
-    },
-
-    "custom/bluetooth": {
-        "exec": "~/.config/waybar/scripts/bluetooth.sh",
-        "return-type": "json",
-        "interval": 5
-    },
-
-    "custom/battery": {
-        "exec": "~/.config/waybar/scripts/battery.sh",
-        "interval": 10,
-        "markup": true
-    },
-
-    "custom/temperature": {
-        "exec": "~/.config/waybar/scripts/temperature.sh",
-        "interval": 5,
-        "markup": true
-    },
-
-    "custom/claude": {
-        "exec": "python3 ~/.config/waybar/scripts/claude.py",
-        "return-type": "json",
-        "interval": 30,
-        "markup": true
+    {
+        "layer": "top",
+        "position": "bottom",
+        "height": 27,
+        "margin-bottom": 4,
+        "margin-left": 4,
+        "margin-right": 4,
+        "modules-right": [
+            "custom/claude",
+            "custom/network",
+            "custom/bluetooth",
+            "custom/vpn",
+            "disk",
+            "pulseaudio",
+            "backlight",
+            "custom/memory",
+            "custom/cpu",
+            "custom/battery",
+            "custom/temperature"
+        ],
+        "disk": {
+            "format": "DISC: {used}/{total}",
+            "path": "/",
+            "interval": 25
+        },
+        "pulseaudio": {
+            "format": "VOL: {volume}%",
+            "format-muted": "VOL: muted",
+            "on-click": "pavucontrol"
+        },
+        "custom/memory": {
+            "exec": "~/.config/waybar/scripts/memory.sh",
+            "interval": 2,
+            "markup": true
+        },
+        "custom/cpu": {
+            "exec": "~/.config/waybar/scripts/cpu.sh",
+            "interval": 2,
+            "markup": true
+        },
+        "custom/network": {
+            "exec": "~/.config/waybar/scripts/network.sh",
+            "return-type": "json",
+            "interval": 5
+        },
+        "custom/bluetooth": {
+            "exec": "~/.config/waybar/scripts/bluetooth.sh",
+            "return-type": "json",
+            "interval": 5
+        },
+        "custom/battery": {
+            "exec": "~/.config/waybar/scripts/battery.sh",
+            "interval": 10,
+            "markup": true
+        },
+        "custom/temperature": {
+            "exec": "~/.config/waybar/scripts/temperature.sh",
+            "interval": 5,
+            "markup": true
+        },
+        "custom/claude": {
+            "exec": "python3 ~/.config/waybar/scripts/claude.py",
+            "return-type": "json",
+            "interval": 30,
+            "markup": true
+        },
+        "name": "bottom",
+        "backlight": {
+            "format": "BRI: {percent}%",
+            "interval": 2
+        },
+        "custom/vpn": {
+            "exec": "~/.config/waybar/scripts/vpn.sh",
+            "return-type": "json",
+            "interval": 10
+        }
     }
-}
+]
