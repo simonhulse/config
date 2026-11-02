@@ -63,6 +63,8 @@ bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 # Brightness controls
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked Shift+XF86MonBrightnessUp exec brightnessctl set 1%+
+bindsym --locked Shift+XF86MonBrightnessDown exec brightnessctl set 1%-
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod normal
