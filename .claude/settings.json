@@ -1,0 +1,8 @@
+{
+  "model": "sonnet",
+  "theme": "dark-ansi",
+  "editorMode": "vim",
+  "vimInsertModeRemaps": {
+    "jk": "<Esc>"
+  }
+}

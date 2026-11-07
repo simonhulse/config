@@ -10,7 +10,8 @@
 **/*.run.xml
 **/*.snm
 **/*.toc
-.claude
+.claude/*
+!.claude/settings.json
 .config/fish/config.fish
 .config/fish/fish_variables
 .config/nvim/lazy-lock.json
