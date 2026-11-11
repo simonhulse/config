@@ -112,16 +112,33 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # Workspaces
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
+set $ws1 "1:terminal"
+set $ws2 "2:firefox"
+set $ws3 "3:zathura"
+set $ws4 "4:zotero"
+set $ws5 "5:thunderbird"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
+set $ws9 "9:keepass"
 set $ws10 "10"
+
+# Send these apps to their workspaces
+assign [app_id="firefox_firefox"] workspace number $ws2
+assign [app_id="org.pwmt.zathura"] workspace number $ws3
+assign [app_id="org.keepassxc.KeePassXC"] workspace number $ws9
+assign [app_id="(?i)zotero"] workspace number $ws4
+assign [class="(?i)zotero"] workspace number $ws4
+assign [app_id="(?i).*thunderbird.*"] workspace number $ws5
+assign [class="(?i)thunderbird.*"] workspace number $ws5
+
+# Launch them at startup (exec, not exec_always, so a reload doesn't relaunch)
+exec swaymsg 'workspace number $ws1; exec kitty'
+exec firefox
+exec zathura
+exec keepassxc
+exec zotero
+exec thunderbird
 
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2

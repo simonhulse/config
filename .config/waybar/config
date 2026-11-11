@@ -14,8 +14,16 @@
             "custom/clock"
         ],
         "sway/workspaces": {
-            "format": "{name}",
-            "on-click": "activate"
+            "format": "{value}",
+            "on-click": "activate",
+            "persistent-workspaces": {
+                "1:terminal": [],
+                "2:firefox": [],
+                "3:zathura": [],
+                "4:zotero": [],
+                "5:thunderbird": [],
+                "9:keepass": []
+            }
         },
         "custom/clock": {
             "exec": "~/.config/waybar/scripts/clock.sh",
