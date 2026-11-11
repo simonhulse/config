@@ -1,5 +1,8 @@
 #!/bin/sh
-val=$(awk '{ printf "%d", $1/1000 }' /sys/class/thermal/thermal_zone0/temp)
+# CPU package temp; find the zone by type since zone numbers can change between boots
+# (thermal_zone0 is INT3400, a firmware placeholder fixed at 20C)
+zone=$(grep -l '^x86_pkg_temp$' /sys/class/thermal/thermal_zone*/type | head -n1)
+val=$(awk '{ printf "%d", $1/1000 }' "$(dirname "$zone")/temp")
 
 # scale 30-90C onto 0-100; gradient: gruvbox #b8bb26 -> #fe8019 -> #fb4934
 color=$(awk -v v="$val" 'BEGIN {

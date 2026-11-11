@@ -44,13 +44,14 @@ window#waybar {
 #custom-memory,
 #custom-cpu,
 #custom-battery,
-#custom-temperature {
+#custom-temperature,
+#custom-skin {
     padding: 0 8px;
     color: #ebdbb2;
     border-right: 1px solid #ebdbb2;
 }
 
-#custom-temperature,
+#custom-skin,
 #custom-clock {
     border-right: none;
 }

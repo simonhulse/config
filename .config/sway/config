@@ -134,6 +134,7 @@ assign [class="(?i)thunderbird.*"] workspace number $ws5
 
 # Launch them at startup (exec, not exec_always, so a reload doesn't relaunch)
 exec swaymsg 'workspace number $ws1; exec kitty'
+exec python3 ~/.config/sway/lowbattery.py
 exec firefox
 exec zathura
 exec keepassxc
